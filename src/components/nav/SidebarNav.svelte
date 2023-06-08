@@ -3,11 +3,11 @@
   import { page } from '$app/stores'
   import { sessionStore } from '$src/stores'
   import About from '$components/icons/About.svelte'
+  import Avatars from '$components/icons/Avatars.svelte'
   import BrandLogo from '$components/icons/BrandLogo.svelte'
   import Disconnect from '$components/icons/Disconnect.svelte'
   import Home from '$components/icons/Home.svelte'
   import PhotoGallery from '$components/icons/PhotoGallery.svelte'
-  import Sequence from '$components/icons/Sequence.svelte'
   import Settings from '$components/icons/Settings.svelte'
   import NavItem from '$components/nav/NavItem.svelte'
 
@@ -23,9 +23,9 @@
       icon: PhotoGallery
     },
     {
-      label: 'Sequences',
-      href: '/sequences/',
-      icon: Sequence
+      label: 'Avatars',
+      href: '/avatars/',
+      icon: Avatars
     },
     {
       label: 'Account Settings',
@@ -92,7 +92,7 @@
           }}
         >
           <BrandLogo />
-          <span class="text-lg font-medium text-base-content">Sequences</span>
+          <span class="text-lg font-medium text-base-content">Avatars</span>
         </div>
 
         <!-- Upper Menu -->
