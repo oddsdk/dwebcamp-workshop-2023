@@ -6,6 +6,11 @@ import { getBackupStatus, type BackupStatus } from '$lib/auth/backup'
 import { USERNAME_STORAGE_KEY, createDID } from '$lib/auth/account'
 import { oddNamespace } from '$lib/app-info'
 
+// Initialize TFJS and models
+import '@tensorflow/tfjs-core'
+import '@tensorflow/tfjs-backend-webgl'
+import '@mediapipe/face_mesh'
+
 export const initialize = async (): Promise<void> => {
   try {
     let backupStatus: BackupStatus = null

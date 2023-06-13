@@ -56,10 +56,17 @@
     ]
   },
   "dependencies": {
+    "@mediapipe/face_mesh": "^0.4.1633559619",
+    "@oddjs/odd": "0.37.0",
+    "@tensorflow-models/face-detection": "1.0.1",
+    "@tensorflow-models/face-landmarks-detection": "1.0.1",
+    "@tensorflow/tfjs-backend-webgl": "3.14.0",
+    "@tensorflow/tfjs-converter": "3.14.0",
+    "@tensorflow/tfjs-core": "3.14.0",
+    "canvg": "^4.0.1",
     "clipboard-copy": "^4.0.1",
     "qrcode-svg": "^1.1.0",
-    "uint8arrays": "^4.0.2",
-    "@oddjs/odd": "0.37.0"
+    "uint8arrays": "^4.0.2"
   },
   "engines": {
     "node": ">=16.14"
