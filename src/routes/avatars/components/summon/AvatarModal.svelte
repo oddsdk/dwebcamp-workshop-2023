@@ -25,7 +25,7 @@
   /**
    * Clear state and dispatch an event to clear parent state
    */
-  const handleCloseModal: () => void = () => {
+  function handleCloseModal() {
     selectedAvatar = null
     previousAvatar = null
     nextAvatar = null
@@ -37,15 +37,16 @@
   /**
    * Delete an avatar from the user's WNFS
    */
-  const handleDeleteAvatar: () => Promise<void> = async () => {
+  async function handleDeleteAvatar() {
     dispatch('delete', { avatar: selectedAvatar })
+
     handleCloseModal()
   }
 
   /**
    * Set the previous and next avatars to be toggled to when the arrows are clicked
    */
-  const setCarouselState = () => {
+  function setCarouselState() {
     const avatarList = avatarsState.avatars
 
     // TODO Change index to use CID?
@@ -62,10 +63,9 @@
    * Load an avatar when a user clicks the Next or Previous arrows
    * @param direction
    */
-  const handleNextOrPrevAvatar: (
-    direction: 'next' | 'prev'
-  ) => void = direction => {
+  function handleNextOrPrevAvatar(direction: 'next' | 'prev') {
     selectedAvatar = direction === 'prev' ? previousAvatar : nextAvatar
+    
     setCarouselState()
   }
 
@@ -74,7 +74,7 @@
    * presses to navigate the carousel
    * @param event
    */
-  const handleKeyDown: (event: KeyboardEvent) => void = event => {
+  function handleKeyDown(event: KeyboardEvent) {
     if (event.key === 'Escape') handleCloseModal()
 
     if (showNextArrow && event.key === 'ArrowRight')
