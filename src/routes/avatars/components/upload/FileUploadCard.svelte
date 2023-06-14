@@ -1,7 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
 
-  import { avatarsStore } from '$routes/avatars/stores'
   import { transmogrify } from '$routes/avatars/lib/avatars'
   import FileUploadIcon from '$routes/avatars/components/icons/FileUploadIcon.svelte'
 
@@ -13,11 +12,6 @@
     if (avatars.length > 0) {
       dispatch('save', { avatar: avatars[0] })
     }
-
-    avatarsStore.update(store => ({
-      ...store,
-      avatars: [...store.avatars, ...avatars]
-    }))
   }
 </script>
 

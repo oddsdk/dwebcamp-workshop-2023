@@ -267,7 +267,6 @@ export async function checkDeleteAvatar(fs: odd.FileSystem, avatarName: string):
 
 export type AvatarsState = {
   selectedArea: Area
-  avatars: Avatar[]
 }
 
 export const AREAS = [ 'Transmogrify', 'Summon' ] as const

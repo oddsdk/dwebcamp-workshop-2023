@@ -1,13 +1,12 @@
 <script lang="ts">
-  import { onDestroy } from 'svelte'
   import * as odd from '@oddjs/odd'
+  import { onDestroy } from 'svelte'
   import clipboardCopy from 'clipboard-copy'
 
   import { checkDeleteAvatar, getAvatarsFromListing, getContentCID, type Avatar } from '$routes/avatars/lib/avatars'
   import { filesystemStore, themeStore } from '$src/stores'
   import AvatarCard from '$routes/avatars/components/summon/AvatarCard.svelte'
   import AvatarModal from '$routes/avatars/components/summon/AvatarModal.svelte'
-  import { avatarsStore } from '../stores'
 
   let fs: odd.FileSystem
   let avatars: Avatar[] = []
@@ -187,8 +186,7 @@
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:lg:grid-cols-6 gap-4"
     >
-      {#each $avatarsStore.avatars as avatar}
-        <!-- {#each avatars as avatar} -->
+      {#each avatars as avatar}
         <AvatarCard {avatar} openModal={() => (selectedAvatar = avatar)} />
       {/each}
     </div>
@@ -198,6 +196,7 @@
     <AvatarModal
       bind:isModalOpen
       {selectedAvatar}
+      {avatars}
       on:close={() => (selectedAvatar = null)}
       on:copycid={copyCID}
       on:delete={deleteAvatar}

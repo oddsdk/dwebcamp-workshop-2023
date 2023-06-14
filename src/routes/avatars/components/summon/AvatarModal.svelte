@@ -1,26 +1,20 @@
 <script lang="ts">
-  import { createEventDispatcher, onDestroy, onMount } from 'svelte'
+  import { createEventDispatcher, onMount } from 'svelte'
 
-  import { avatarsStore } from '$routes/avatars/stores'
-  import { type AvatarsState, type Avatar } from '$routes/avatars/lib/avatars'
+  import type { Avatar } from '$routes/avatars/lib/avatars'
   import Download from '$components/icons/Download.svelte'
   import Trash from '$components/icons/Trash.svelte'
 
   export let selectedAvatar: Avatar
+  export let avatars: Avatar[]
   export let isModalOpen: boolean
 
-  let avatarsState: AvatarsState
   let previousAvatar: Avatar | undefined
   let nextAvatar: Avatar | undefined
   let showPreviousArrow: boolean
   let showNextArrow: boolean
 
   const dispatch = createEventDispatcher()
-
-  const unsubcribe = avatarsStore.subscribe(newState => { 
-    avatarsState = newState 
-  })
-
 
   /**
    * Clear state and dispatch an event to clear parent state
@@ -47,16 +41,14 @@
    * Set the previous and next avatars to be toggled to when the arrows are clicked
    */
   function setCarouselState() {
-    const avatarList = avatarsState.avatars
+    const currentIndex = avatars.findIndex(
+      val => val.name === selectedAvatar.name
+    )
+    previousAvatar = avatars[currentIndex - 1] ?? avatars[avatars.length - 1]
+    nextAvatar = avatars[currentIndex + 1] ?? avatars[0]
 
-    // TODO Change index to use CID?
-    const currentIndex = avatarList.findIndex(val => val.name === selectedAvatar.name)
-    previousAvatar =
-      avatarList[currentIndex - 1] ?? avatarList[avatarList.length - 1]
-    nextAvatar = avatarList[currentIndex + 1] ?? avatarList[0]
-
-    showPreviousArrow = avatarList.length > 1 && !!previousAvatar
-    showNextArrow = avatarList.length > 1 && !!nextAvatar
+    showPreviousArrow = avatars.length > 1 && !!previousAvatar
+    showNextArrow = avatars.length > 1 && !!nextAvatar
   }
 
   /**
@@ -65,7 +57,7 @@
    */
   function handleNextOrPrevAvatar(direction: 'next' | 'prev') {
     selectedAvatar = direction === 'prev' ? previousAvatar : nextAvatar
-    
+
     setCarouselState()
   }
 
@@ -95,9 +87,6 @@
   onMount(() => {
     setCarouselState()
   })
-
-  // Unsubscribe from avatarsStore updates
-  onDestroy(unsubcribe)
 </script>
 
 <svelte:window on:keydown={handleKeyDown} />

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { onDestroy } from 'svelte'
   import * as odd from '@oddjs/odd'
+  import { onDestroy } from 'svelte'
   import FileUploadCard from '$routes/avatars/components/upload/FileUploadCard.svelte'
 
   import { checkInitialize, checkSaveAvatar, type Avatar } from '$routes/avatars/lib/avatars'
