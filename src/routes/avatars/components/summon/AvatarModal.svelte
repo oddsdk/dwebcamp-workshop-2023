@@ -2,16 +2,16 @@
   import { createEventDispatcher, onDestroy, onMount } from 'svelte'
 
   import { avatarsStore } from '$routes/avatars/stores'
-  import { type AvatarsState, type Image } from '$routes/avatars/lib/avatars'
+  import { type AvatarsState, type Avatar } from '$routes/avatars/lib/avatars'
   import Download from '$components/icons/Download.svelte'
   import Trash from '$components/icons/Trash.svelte'
 
-  export let image: Image
+  export let selectedAvatar: Avatar
   export let isModalOpen: boolean
 
   let avatarsState: AvatarsState
-  let previousImage: Image | undefined
-  let nextImage: Image | undefined
+  let previousAvatar: Avatar | undefined
+  let nextAvatar: Avatar | undefined
   let showPreviousArrow: boolean
   let showNextArrow: boolean
 
@@ -23,51 +23,49 @@
 
 
   /**
-   * Close the modal, clear the image state vars, set `isModalOpen` to false
-   * and dispatch the close event to clear the image from the parent's state
+   * Clear state and dispatch an event to clear parent state
    */
   const handleCloseModal: () => void = () => {
-    image = null
-    previousImage = null
-    nextImage = null
+    selectedAvatar = null
+    previousAvatar = null
+    nextAvatar = null
     isModalOpen = false
 
     dispatch('close')
   }
 
   /**
-   * Delete an image from the user's WNFS
+   * Delete an avatar from the user's WNFS
    */
-  const handleDeleteImage: () => Promise<void> = async () => {
+  const handleDeleteAvatar: () => Promise<void> = async () => {
+    dispatch('delete', { avatar: selectedAvatar })
     handleCloseModal()
-
-    dispatch('delete', { avatar: image })
   }
 
   /**
-   * Set the previous and next images to be toggled to when the arrows are clicked
+   * Set the previous and next avatars to be toggled to when the arrows are clicked
    */
   const setCarouselState = () => {
-    const imageList = avatarsState.images
+    const avatarList = avatarsState.avatars
 
     // TODO Change index to use CID?
-    const currentIndex = imageList.findIndex(val => val.name === image.name)
-    previousImage =
-      imageList[currentIndex - 1] ?? imageList[imageList.length - 1]
-    nextImage = imageList[currentIndex + 1] ?? imageList[0]
+    const currentIndex = avatarList.findIndex(val => val.name === selectedAvatar.name)
+    previousAvatar =
+      avatarList[currentIndex - 1] ?? avatarList[avatarList.length - 1]
+    nextAvatar = avatarList[currentIndex + 1] ?? avatarList[0]
 
-    showPreviousArrow = imageList.length > 1 && !!previousImage
-    showNextArrow = imageList.length > 1 && !!nextImage
+    showPreviousArrow = avatarList.length > 1 && !!previousAvatar
+    showNextArrow = avatarList.length > 1 && !!nextAvatar
   }
 
   /**
-   * Load the correct image when a user clicks the Next or Previous arrows
+   * Load an avatar when a user clicks the Next or Previous arrows
    * @param direction
    */
-  const handleNextOrPrevImage: (
+  const handleNextOrPrevAvatar: (
     direction: 'next' | 'prev'
   ) => void = direction => {
-    image = direction === 'prev' ? previousImage : nextImage
+    selectedAvatar = direction === 'prev' ? previousAvatar : nextAvatar
     setCarouselState()
   }
 
@@ -80,18 +78,18 @@
     if (event.key === 'Escape') handleCloseModal()
 
     if (showNextArrow && event.key === 'ArrowRight')
-      handleNextOrPrevImage('next')
+      handleNextOrPrevAvatar('next')
 
     if (showPreviousArrow && event.key === 'ArrowLeft')
-      handleNextOrPrevImage('prev')
+      handleNextOrPrevAvatar('prev')
   }
 
   async function copyCID() {
-    dispatch('copycid', { fileName: image.name })
+    dispatch('copycid', { fileName: selectedAvatar.name })
   }
 
   async function openLink() {
-    dispatch('openlink', { fileName: image.name })
+    dispatch('openlink', { fileName: selectedAvatar.name })
   }
 
   onMount(() => {
@@ -104,22 +102,22 @@
 
 <svelte:window on:keydown={handleKeyDown} />
 
-{#if !!image}
+{#if !!selectedAvatar}
   <input
     type="checkbox"
-    id={`image-modal-${image.name}`}
+    id={`avatar-modal-${selectedAvatar.name}`}
     class="modal-toggle"
     bind:checked={isModalOpen}
   />
   <label
-    for={`image-modal-${image.name}`}
+    for={`avatar-modal-${selectedAvatar.name}`}
     class="modal cursor-pointer z-50"
     on:click|self={handleCloseModal}
     on:keypress|self={handleCloseModal}
   >
     <div class="modal-box relative text-center text-base-content">
       <label
-        for={`image-modal-${image.name}`}
+        for={`avatar-modal-${selectedAvatar.name}`}
         class="btn btn-xs btn-circle absolute right-2 top-2"
         on:click|self={handleCloseModal}
         on:keypress|self={handleCloseModal}
@@ -127,33 +125,32 @@
         ✕
       </label>
       <div>
-        <h3 class="mb-7 text-lg break-all">{image.name}</h3>
+        <h3 class="mb-7 text-lg break-all">{selectedAvatar.name}</h3>
 
         <div class="relative">
           {#if showPreviousArrow}
             <button
               class="absolute top-1/2 -left-[25px] -translate-y-1/2 inline-block text-center text-[40px]"
-              on:click={() => handleNextOrPrevImage('prev')}
+              on:click={() => handleNextOrPrevAvatar('prev')}
             >
               &#8249;
             </button>
           {/if}
           <img
             class="block object-cover object-center border-2 border-base-content w-full h-full mb-4 rounded-[1rem]"
-            alt={`Image: ${image.name}`}
-            src={image.src}
+            alt={`Avatar: ${selectedAvatar.name}`}
+            src={selectedAvatar.src}
           />
           {#if showNextArrow}
             <button
               class="absolute top-1/2 -right-[25px] -translate-y-1/2 inline-block text-center text-[40px]"
-              on:click={() => handleNextOrPrevImage('next')}
+              on:click={() => handleNextOrPrevAvatar('next')}
             >
               &#8250;
             </button>
           {/if}
         </div>
         <div class="flex flex-col items-center justify-center">
-          <!-- TODO Use CID for image -->
           <button
             class="underline mb-2 hover:text-neutral-500"
             on:click={openLink}
@@ -169,14 +166,14 @@
             class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-4"
           >
             <a
-              href={image.src}
-              download={image.name}
+              href={selectedAvatar.src}
+              download={selectedAvatar.name}
               class="btn btn-primary gap-2"
             >
-              <Download /> Download Image
+              <Download /> Download Avatar
             </a>
-            <button class="btn btn-outline gap-2" on:click={handleDeleteImage}>
-              <Trash /> Delete Image
+            <button class="btn btn-outline gap-2" on:click={handleDeleteAvatar}>
+              <Trash /> Delete Avatar
             </button>
           </div>
         </div>

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Image } from '$routes/avatars/lib/avatars'
+  import type { Avatar } from '$routes/avatars/lib/avatars'
 
-  export let avatar: Image
-  export let openModal: (avatar: Image) => void
+  export let avatar: Avatar
+  export let openModal: (avatar: Avatar) => void
 </script>
 
 <div

@@ -3,17 +3,17 @@
   import * as odd from '@oddjs/odd'
   import clipboardCopy from 'clipboard-copy'
 
-  import { checkDeleteAvatar, getAvatarsFromListing, getContentCID, type Image } from '$routes/avatars/lib/avatars'
+  import { checkDeleteAvatar, getAvatarsFromListing, getContentCID, type Avatar } from '$routes/avatars/lib/avatars'
   import { filesystemStore, themeStore } from '$src/stores'
   import AvatarCard from '$routes/avatars/components/summon/AvatarCard.svelte'
   import AvatarModal from '$routes/avatars/components/summon/AvatarModal.svelte'
   import { avatarsStore } from '../stores'
 
   let fs: odd.FileSystem
-  let avatars: Image[] = []
+  let avatars: Avatar[] = []
   let cidQuery = ''
   let isModalOpen: boolean
-  let selectedAvatar: Image = null
+  let selectedAvatar: Avatar = null
 
   const unsubscribeFileSystemStore = filesystemStore.subscribe(fileSystem => {
     fs = fileSystem
@@ -58,7 +58,7 @@
     }
   }
 
-  async function deleteAvatar(event: CustomEvent<{ avatar: Image }>) {
+  async function deleteAvatar(event: CustomEvent<{ avatar: Avatar }>) {
     const { avatar } = event.detail
 
     console.log('Avatar to delete:', avatar)
@@ -70,10 +70,7 @@
 
       /**
        * TODO Create a file path for the avatar. The file path should include each
-       * path segment from the avatars directory followed by a file name.
-       *
-       * The avatar object passed to this function has an image name we can use
-       * for our file name.
+       * path segment from the avatars directory followed by the file name.
        *
        * See the path documentation for path examples: https://docs.odd.dev/file-system-wnfs#paths
        */
@@ -190,8 +187,8 @@
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:lg:grid-cols-6 gap-4"
     >
-      <!-- {#each $avatarsStore.images as avatar} -->
-      {#each avatars as avatar}
+      {#each $avatarsStore.avatars as avatar}
+        <!-- {#each avatars as avatar} -->
         <AvatarCard {avatar} openModal={() => (selectedAvatar = avatar)} />
       {/each}
     </div>
@@ -200,7 +197,7 @@
   {#if selectedAvatar}
     <AvatarModal
       bind:isModalOpen
-      image={selectedAvatar}
+      {selectedAvatar}
       on:close={() => (selectedAvatar = null)}
       on:copycid={copyCID}
       on:delete={deleteAvatar}

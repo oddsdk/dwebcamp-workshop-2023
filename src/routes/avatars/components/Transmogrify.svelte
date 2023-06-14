@@ -3,7 +3,7 @@
   import * as odd from '@oddjs/odd'
   import FileUploadCard from '$routes/avatars/components/upload/FileUploadCard.svelte'
 
-  import { checkInitialize, checkSaveAvatar, type Image } from '$routes/avatars/lib/avatars'
+  import { checkInitialize, checkSaveAvatar, type Avatar } from '$routes/avatars/lib/avatars'
   import { filesystemStore, themeStore } from '$src/stores'
 
   let fs: odd.FileSystem
@@ -64,7 +64,7 @@
     }
   }
 
-  async function saveAvatar(event: CustomEvent<{ avatar: Image }>) {
+  async function saveAvatar(event: CustomEvent<{ avatar: Avatar }>) {
     const { avatar } = event.detail
 
     console.log('Avatar to save:', avatar)

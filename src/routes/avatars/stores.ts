@@ -6,5 +6,5 @@ import type { AvatarsState } from '$routes/avatars/lib/avatars'
 
 export const avatarsStore: Writable<AvatarsState> = writable({
   selectedArea: 'Transmogrify',
-  images: []
+  avatars: []
 })

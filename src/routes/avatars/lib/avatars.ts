@@ -8,12 +8,8 @@ import type PublicFile from '@oddjs/odd/fs/v1/PublicFile'
 
 import { addNotification } from '$lib/notifications'
 
-export type Image = {
-  // cid: string
-  // ctime: number
+export type Avatar = {
   name: string
-  // private: boolean
-  // size: number
   src: string
 }
 
@@ -23,11 +19,9 @@ export type Image = {
  */
 export const transmogrify: (
   files: FileList
-) => Promise<Image[] | null> = async files => {
-  const images = await Promise.all(
+) => Promise<Avatar[] | null> = async files => {
+  const avatars = await Promise.all(
     Array.from(files).map(async file => {
-      console.log('file', file)
-
       // Draw image
       const imageBitmap = await createImageBitmap(file)
       const offscreen = new OffscreenCanvas(imageBitmap.width, imageBitmap.height)
@@ -49,7 +43,7 @@ export const transmogrify: (
         const blob = await offscreen.convertToBlob()
         const src = await toBase64(blob)
 
-        addNotification(`Image ${file.name} transmogrified and available for summoning.`, 'success')
+        addNotification(`Avatar ${file.name} transmogrified and available for summoning.`, 'success')
 
         return { name: file.name, src }
       } else {
@@ -60,10 +54,10 @@ export const transmogrify: (
     })
   )
 
-  return images.filter(image => image !== null)
+  return avatars.filter(avatar => avatar !== null)
 }
 
-export async function getAvatarsFromListing(listing: { [ name: string ]: Link }, fs: odd.FileSystem): Promise<Image[]> {
+export async function getAvatarsFromListing(listing: { [ name: string ]: Link }, fs: odd.FileSystem): Promise<Avatar[]> {
   return await Promise.all(Object.keys(listing).map(async key => {
     const filePath = odd.path.file('public', 'avatars', key)
     const encodedContent = await fs.read(filePath)
@@ -273,7 +267,7 @@ export async function checkDeleteAvatar(fs: odd.FileSystem, avatarName: string):
 
 export type AvatarsState = {
   selectedArea: Area
-  images: Image[]
+  avatars: Avatar[]
 }
 
 export const AREAS = [ 'Transmogrify', 'Summon' ] as const

@@ -8,15 +8,15 @@
   const dispatch = createEventDispatcher()
 
   async function handleFileInput(event: { currentTarget: HTMLInputElement }) {
-    const images = await transmogrify(event.currentTarget.files)
+    const avatars = await transmogrify(event.currentTarget.files)
 
-    if (images.length > 0) {
-      dispatch('save', { avatar: images[0] })
+    if (avatars.length > 0) {
+      dispatch('save', { avatar: avatars[0] })
     }
 
     avatarsStore.update(store => ({
       ...store,
-      images: [...store.images, ...images]
+      avatars: [...store.avatars, ...avatars]
     }))
   }
 </script>
