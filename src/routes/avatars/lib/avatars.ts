@@ -1,6 +1,10 @@
 import * as faceLandmarksDetection from '@tensorflow-models/face-landmarks-detection'
+import * as odd from '@oddjs/odd'
+import { isFile } from '@oddjs/odd/fs/types/check'
 import { Canvg, presets } from 'canvg'
+import type { Link } from '@oddjs/odd/fs/types'
 import type { FaceLandmarksDetector } from '@tensorflow-models/face-landmarks-detection'
+import type PublicFile from '@oddjs/odd/fs/v1/PublicFile'
 
 import { addNotification } from '$lib/notifications'
 
@@ -12,21 +16,6 @@ export type Image = {
   // size: number
   src: string
 }
-
-// Image processing
-
-let detector: FaceLandmarksDetector
-
-async function initializeModel() {
-  const model = faceLandmarksDetection.SupportedModels.MediaPipeFaceMesh
-  const detectorConfig = {
-    runtime: 'tfjs' as const,
-    refineLandmarks: true
-  }
-  detector = await faceLandmarksDetection.createDetector(model, detectorConfig)
-}
-
-initializeModel().catch(err => console.log('Could not initialize face landmark model', err))
 
 
 /**
@@ -74,12 +63,52 @@ export const transmogrify: (
   return images.filter(image => image !== null)
 }
 
+export async function getAvatarsFromListing(listing: { [ name: string ]: Link }, fs: odd.FileSystem): Promise<Image[]> {
+  return await Promise.all(Object.keys(listing).map(async key => {
+    const filePath = odd.path.file('public', 'avatars', key)
+    const encodedContent = await fs.read(filePath)
+
+    return JSON.parse(new TextDecoder().decode(encodedContent))
+  }))
+}
+
+export async function getContentCID(fileName: string, fs: odd.FileSystem): Promise<string> {
+  const filePath = odd.path.file('public', 'avatars', `${fileName}`)
+
+  const file = await fs.get(filePath)
+
+  if (!isFile(file)) {
+    addNotification(`Could not find public/sequences/${fileName}.`, 'error')
+    return ''
+  }
+
+  const cid = (file as PublicFile).cid.toString()
+
+  return cid
+}
+
+// Image processing
+
 type EyeEstimates = {
   leftEye: { dx: number; dy: number }
   rightEye: { dx: number; dy: number }
   oddWidth: number
   oddHeight: number
 }
+
+
+let detector: FaceLandmarksDetector
+
+async function initializeModel() {
+  const model = faceLandmarksDetection.SupportedModels.MediaPipeFaceMesh
+  const detectorConfig = {
+    runtime: 'tfjs' as const,
+    refineLandmarks: true
+  }
+  detector = await faceLandmarksDetection.createDetector(model, detectorConfig)
+}
+
+initializeModel().catch(err => console.log('Could not initialize face landmark model', err))
 
 /**
  * Estimate eye placements and calculate target width and height
@@ -161,7 +190,7 @@ async function prepareEye(width: number, height: number): Promise<Blob> {
 }
 
 /**
- * Calculate Y offset over actual eye.
+ * Calculate Y offset over the actual eye.
  * 
  * The ODD eye is rounder and taller than actual eyes. We often need
  * to translate it up on the actual eye.
@@ -194,6 +223,49 @@ function toBase64(blob: Blob): Promise<string> {
     reader.onload = () => resolve(reader.result as string)
     reader.onerror = reject
   })
+}
+
+
+// Checks
+
+export async function checkInitialize(fs: odd.FileSystem): Promise<void> {
+  /**
+   * Hey there! You might be inspecting this check to look for a hint. We have
+   * lightly obfuscated this check to make that slightly harder, but go ahead and
+   * de-obfuscate if that's your preferred method of arriving at a solution.
+   */
+
+  // @ts-ignore Ignore intentional obfuscation
+  const exists = await fs.exists(odd.path.directory(atob('cHVibGlj'), atob('c2VxdWVuY2Vz')))
+
+  console.log(
+    `Checking initialize exercise: %c${exists ? 'Looks good!👌' : 'Avatars directory is missing.'}`,
+    `${exists ? 'color: #15803D' : 'color: #DC2626'}`
+  )
+}
+
+export async function checkSaveAvatar(fs: odd.FileSystem, avatarName: string): Promise<void> {
+  const obfuscatedFileName = btoa([String(avatarName)].join(''))
+
+  // @ts-ignore Ignore intentional obfuscation
+  const exists = await fs.exists(odd.path.file(atob('cHVibGlj'), atob('c2VxdWVuY2Vz'), atob(obfuscatedFileName)))
+
+  console.log(
+    `Checking save exercise: %c${exists ? `${atob(obfuscatedFileName)} was found.💯` : `${atob(obfuscatedFileName)} was not found.`}`,
+    `${exists ? 'color: #15803D' : 'color: #DC2626'}`
+  )
+}
+
+export async function checkDeleteAvatar(fs: odd.FileSystem, avatarName: string): Promise<void> {
+  const obfuscatedFileName = btoa([String(avatarName)].join(''))
+
+  // @ts-ignore Ignore intentional obfuscation
+  const exists = await fs.exists(odd.path.file(atob('cHVibGlj'), atob('c2VxdWVuY2Vz'), atob(obfuscatedFileName)))
+
+  console.log(
+    `Checking delete exercise: %c${exists ? `${atob(obfuscatedFileName)} was not deleted.` : `${atob(obfuscatedFileName)} was deleted.💯`}`,
+    `${exists ? 'color: #DC2626' : 'color: #15803D'}`
+  )
 }
 
 

@@ -1,8 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher, onDestroy, onMount } from 'svelte'
-  import clipboardCopy from 'clipboard-copy'
 
-  import { ipfsGatewayUrl } from '$lib/app-info';
   import { avatarsStore } from '$routes/avatars/stores'
   import { type AvatarsState, type Image } from '$routes/avatars/lib/avatars'
   import Download from '$components/icons/Download.svelte'
@@ -21,7 +19,6 @@
 
   const unsubcribe = avatarsStore.subscribe(newState => { 
     avatarsState = newState 
-    console.log('avatar state', avatarsState)
   })
 
 
@@ -42,9 +39,9 @@
    * Delete an image from the user's WNFS
    */
   const handleDeleteImage: () => Promise<void> = async () => {
-    // TODO Add delete image
-    // await deleteImageFromWNFS(image.name)
-    // handleCloseModal()
+    handleCloseModal()
+
+    dispatch('delete', { avatar: image })
   }
 
   /**
@@ -90,8 +87,11 @@
   }
 
   async function copyCID() {
-    // TODO Use image CID
-    await clipboardCopy('bafybeiaspzsbvh4je62wtrcl55l36u7qk47ttzrt7asazhxeyipqh4hsuq')
+    dispatch('copycid', { fileName: image.name })
+  }
+
+  async function openLink() {
+    dispatch('openlink', { fileName: image.name })
   }
 
   onMount(() => {
@@ -154,13 +154,12 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <!-- TODO Use CID for image -->
-          <a
-            href={`https://ipfs.${ipfsGatewayUrl}/ipfs/bafybeiaspzsbvh4je62wtrcl55l36u7qk47ttzrt7asazhxeyipqh4hsuq/userland`}
-            target="_blank"
+          <button
             class="underline mb-2 hover:text-neutral-500"
+            on:click={openLink}
           >
             View on IPFS
-          </a>
+          </button>
 
           <button class="btn mb-2 hover:text-neutral-500" on:click={copyCID}>
             Copy CID

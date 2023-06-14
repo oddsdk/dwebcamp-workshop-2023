@@ -1,10 +1,18 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte'
+
   import { avatarsStore } from '$routes/avatars/stores'
   import { transmogrify } from '$routes/avatars/lib/avatars'
   import FileUploadIcon from '$routes/avatars/components/icons/FileUploadIcon.svelte'
 
+  const dispatch = createEventDispatcher()
+
   async function handleFileInput(event: { currentTarget: HTMLInputElement }) {
     const images = await transmogrify(event.currentTarget.files)
+
+    if (images.length > 0) {
+      dispatch('save', { avatar: images[0] })
+    }
 
     avatarsStore.update(store => ({
       ...store,
@@ -27,7 +35,7 @@
   <input
     id="upload-file"
     type="file"
-    multiple
+    multiple={false}
     accept="image/*"
     class="hidden"
     on:input={handleFileInput}
