@@ -3,7 +3,7 @@
   import { onDestroy } from 'svelte'
   import clipboardCopy from 'clipboard-copy'
 
-  import { checkDeleteAvatar, getAvatarsFromListing, getContentCID, type Avatar } from '$routes/avatars/lib/avatars'
+  import { checkDeleteAvatar, fileToUint8Array, getAvatarsFromListing, getContentCID, type Avatar } from '$routes/avatars/lib/avatars'
   import { filesystemStore, themeStore } from '$src/stores'
   import AvatarCard from '$routes/avatars/components/summon/AvatarCard.svelte'
   import AvatarModal from '$routes/avatars/components/summon/AvatarModal.svelte'
@@ -125,13 +125,13 @@
        * Replace "ipfs.runfission.com" with "ipfs.io" to view the avatar on
        * the Protocol Labs HTTP gateway.
        */
-      const url = `https://ipfs.runfission.com/ipfs/bafybeiaspzsbvh4je62wtrcl55l36u7qk47ttzrt7asazhxeyipqh4hsuq/userland`
+      const url = `https://ipfs.runfission.com/ipfs/${cid}/userland`
 
       window.open(url, '_newtab')
     }
   }
 
-  function addAvatar() {
+  async function addAvatar() {
     /**
      * OPTIONAL ADVANCED ACTIVITY
      *
@@ -142,9 +142,12 @@
      * avatar from an HTTP gateway and add it to our collection.
      *
      * Fetch an avatar using the cidQuery variable and write it to the
-     * avatars directory. You won't be able to add an avatar that is already
-     * in your file system, so ask one of your neighbors for a CID to test
-     * your implementation.
+     * avatars directory. The avatar will be a Blob with a blob.type that
+     * contains it MIME type. The file name won't be available, but we can use
+     * the CID for the file name with an extension derived from blob.type.
+     *
+     * You won't be able to add an avatar that is already in your file
+     * system, so ask one of your neighbors for a CID to test your implementation.
      */
   }
 
