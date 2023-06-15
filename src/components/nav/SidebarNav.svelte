@@ -85,7 +85,7 @@
       <div class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
         <!-- Brand -->
         <div
-          class="flex items-center gap-3 cursor-pointer mb-8"
+          class="flex items-center gap-3 cursor-pointer mb-10"
           on:click={() => {
             handleCloseDrawer()
             goto('/')

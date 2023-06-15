@@ -26,7 +26,7 @@
     {#if $sessionStore.session}
       <label
         for="sidebar-nav"
-        class="drawer-button cursor-pointer -translate-x-2"
+        class="drawer-button cursor-pointer"
       >
         <Hamburger />
       </label>
