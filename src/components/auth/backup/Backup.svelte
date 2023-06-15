@@ -16,7 +16,7 @@
 <div class="modal">
   <div class="modal-box w-narrowModal relative text-center">
     <div id="backup-message" class="peer-checked:hidden">
-      <h3 class="mb-8 text-base">Backup your account</h3>
+      <h3 class="mb-8 text-body-m">Backup your account</h3>
       <p class="mb-5 text-left">
         Your {appName} account & its data live only on your devices.
       </p>
@@ -33,7 +33,7 @@
         Connect a backup device
       </button>
       <button
-        class="btn btn-xs btn-link text-sm underline mt-4"
+        class="btn btn-xs btn-link text-body-sm underline mt-4"
         on:click={() => navigate('are-you-sure')}
       >
         Skip for now

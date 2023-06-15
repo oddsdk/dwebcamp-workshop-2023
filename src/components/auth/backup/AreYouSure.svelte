@@ -20,7 +20,7 @@
 <div class="modal">
   <div class="modal-box w-narrowModal relative text-center">
     <div>
-      <h3 class="mb-8 text-base">Are you sure?</h3>
+      <h3 class="mb-8 text-body-m">Are you sure?</h3>
 
       <p class="mb-7 text-left">
         Without a backup device, if you lose this device or reset your browser,
@@ -34,7 +34,7 @@
         Connect a backup device
       </button>
       <span
-        class="text-error underline block mt-4 text-sm text-red-600 cursor-pointer"
+        class="text-error underline block mt-4 text-body-sm text-red-600 cursor-pointer"
         on:click={skipBackup}
       >
         YOLO&mdash;I'll risk just one device for now

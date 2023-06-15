@@ -22,7 +22,7 @@
         {#each AREAS as area}
           <button
             on:click={() => handleChangeTab(area)}
-            class="tab h-10 font-bold text-sm ease-in {$sequencesStore.selectedArea ===
+            class="tab h-10 font-bold text-body-sm ease-in {$sequencesStore.selectedArea ===
             area
               ? 'tab-active bg-base-content text-base-100'
               : 'bg-base-100 text-base-content'}"

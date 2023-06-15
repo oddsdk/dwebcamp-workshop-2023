@@ -7,7 +7,7 @@
 </script>
 
 <div class="flex flex-col gap-4">
-  <h3 class="text-lg">Recovery Kit</h3>
+  <h3 class="text-body-lg">Recovery Kit</h3>
   <p>
     Your recovery kit will restore access to your data in the event that you
     lose access to all of your connected devices. We recommend you store your

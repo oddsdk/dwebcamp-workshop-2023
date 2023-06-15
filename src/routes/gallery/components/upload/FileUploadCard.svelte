@@ -23,10 +23,10 @@
   {:else}
     <div class="flex flex-col justify-center items-center pt-5 pb-6">
       <FileUploadIcon />
-      <p class="mt-4 mb-2 text-sm">
-        <span class="font-bold text-sm">Upload a photo</span>
+      <p class="mt-4 mb-2 text-body-sm">
+        <span class="font-bold text-body-sm">Upload a photo</span>
       </p>
-      <p class="text-xxs">SVG, PNG, JPG or GIF</p>
+      <p class="text-body-xs">SVG, PNG, JPG or GIF</p>
     </div>
     <input
       bind:files

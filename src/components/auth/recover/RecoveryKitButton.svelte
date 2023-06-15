@@ -54,7 +54,7 @@
   >
     {#if state === RECOVERY_STATES.Processing}
       <span
-        class="animate-spin ease-linear rounded-full border-2 border-t-2 border-t-orange-500 border-neutral-900 w-[16px] h-[16px] text-sm"
+        class="animate-spin ease-linear rounded-full border-2 border-t-2 border-t-orange-500 border-neutral-900 w-[16px] h-[16px] text-body-sm"
       />
     {/if}
     {buttonData[state].text}

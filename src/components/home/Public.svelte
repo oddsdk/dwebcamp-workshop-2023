@@ -6,9 +6,9 @@
 </script>
 
 <div
-  class="min-h-[calc(100vh-96px)] flex flex-col items-start justify-center max-w-[700px] m-auto gap-6 pb-5 text-sm"
+  class="min-h-[calc(100vh-96px)] flex flex-col items-start justify-center max-w-[700px] m-auto gap-6 pb-5 text-body-sm"
 >
-  <h1 class="text-xl">Welcome to the {appName}</h1>
+  <h1 class="text-heading-lg">Welcome to the {appName}</h1>
 
   <div class="max-w-[590px]">
     <p class="mb-5">
@@ -33,7 +33,7 @@
 
     {#if $sessionStore.error === 'Unsupported Browser'}
       <div class="p-4 rounded-lg bg-base-content text-neutral-50">
-        <h3 class="flex items-center gap-2 text-base">
+        <h3 class="flex items-center gap-2 text-body-m">
           <span class="-translate-y-[2px]"><Alert /></span>
           Unsupported device
         </h3>

@@ -7,7 +7,7 @@
   const sizeClasses =
     size === 'large'
       ? 'w-[88px] h-[88px] text-[40px]'
-      : 'w-[40px] h-[40px] text-sm'
+      : 'w-[40px] h-[40px] text-body-sm'
 
   const loaderSizeClasses =
     size === 'large' ? 'w-[28px] h-[28px]' : 'w-[16px] h-[16px]'

@@ -77,14 +77,14 @@
   <div
     class="flex flex-col items-center justify-center gap-8 min-h-[calc(100vh-128px)] md:min-h-[calc(100vh-160px)] max-w-[352px] m-auto"
   >
-    <h1 class="text-base">Connect this device</h1>
+    <h1 class="text-body-m">Connect this device</h1>
 
     <!-- Registration Form -->
     <form
       on:submit={registerUser}
       class="w-full p-6 rounded bg-base-content text-base-100"
     >
-      <h2 class="mb-2 text-sm font-semibold">Choose a username</h2>
+      <h2 class="mb-2 text-body-sm font-semibold">Choose a username</h2>
       <div class="relative">
         <input
           id="registration"
@@ -106,7 +106,7 @@
       {#if !registrationSuccess}
         <!-- Error when registration fails -->
         <label for="registration" class="label">
-          <span class="text-xxs !p-0 text-error text-left">
+          <span class="text-body-xs !p-0 text-error text-left">
             There was an issue registering your account. Please try again.
           </span>
         </label>
@@ -121,7 +121,7 @@
         <!-- Warning when "This is a shared computer" is checked -->
         <label
           for="shared-computer"
-          class="cursor-pointer ml-1 text-sm grid-inline"
+          class="cursor-pointer ml-1 text-body-sm grid-inline"
         >
           This is a public or shared computer
         </label>
@@ -171,7 +171,7 @@
         <div
           class="flex flex-col gap-4 p-6 rounded bg-neutral-200 text-neutral-900"
         >
-          <h3 class="text-sm text-center">
+          <h3 class="text-body-sm text-center">
             Which device are you connected on?
           </h3>
           <p>To connect your existing account, you'll need to:</p>

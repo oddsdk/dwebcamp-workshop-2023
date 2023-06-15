@@ -87,12 +87,12 @@
 </script>
 
 <div
-  class="min-h-[calc(100vh-96px)] flex flex-col items-start justify-center max-w-[590px] m-auto gap-6 pb-5 text-sm"
+  class="min-h-[calc(100vh-96px)] flex flex-col items-start justify-center max-w-[590px] m-auto gap-6 pb-5 text-body-sm"
 >
-  <h1 class="text-xl">Recover your account</h1>
+  <h1 class="text-heading-lg">Recover your account</h1>
 
   {#if state === RECOVERY_STATES.Done}
-    <h3 class="flex items-center gap-2 font-normal text-base text-green-600">
+    <h3 class="flex items-center gap-2 font-normal text-body-m text-green-600">
       <Check /> Account recovered!
     </h3>
     <p>
@@ -117,7 +117,7 @@
     <RecoveryKitButton {handleFileInput} {state} />
 
     {#if state !== RECOVERY_STATES.Done}
-      <p class="text-xxs">
+      <p class="text-body-xs">
         {`It should be a file named ODD-RecoveryKit-{yourUsername}.txt`}
       </p>
     {/if}

@@ -12,7 +12,7 @@ module.exports = {
           primary: '#171717',
           secondary: '#30aadd',
           accent: '#00ffc6',
-          neutral: '#171717',
+          neutral: '#171717', 
           info: '#93c5fd',
           success: '#BBF7D0',
           warning: '#fdba74',
@@ -96,18 +96,21 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['UncutSans']
+        sans: ['ApfelGrotezk'],
+        serif: ['Literata']
       },
       fontSize: {
-        mobileNav: ['24px', { lineHeight: '24px' }],
-        deviceCode: ['30px', { lineHeight: '36px' }],
-        xxs: ['12px', { lineHeight: '16px' }],
-        xs: ['13px', { lineHeight: '24px', letterSpacing: '0.1em' }],
-        sm: ['16px', { lineHeight: '24px' }],
-        base: ['20px', { lineHeight: '28px' }],
-        lg: ['24px', { lineHeight: '32px' }],
-        xl: ['38px', { lineHeight: '48px' }],
-        '2xl': ['50px', { lineHeight: '62px' }]
+        'btn-sm': ['16px', { lineHeight: '17px'}],
+        'btn': ['20px', { lineHeight: '22px'}],
+        'body-xs': ['12px', { lineHeight: '18px'}],
+        'body-sm': ['16px', { lineHeight: '24px' }],
+        'body-m': ['20px', { lineHeight: '30px' }],
+        'body-lg': ['24px', { lineHeight: '36px' }],
+        'heading-sm': ['16px', { lineHeight: '17px', textTransform: 'uppercase', letterSpacing: '0.04em' }],
+        'heading-m': ['24px', { lineHeight: '30px', letterSpacing: '-0.02em' }],
+        'heading-lg': ['38px', { lineHeight: '41px', letterSpacing: '-0.02em' }],
+        'heading-xl': ['50px', { lineHeight: '54px', letterSpacing: '-0.02em' }],
+        'heading-2xl': ['56px', { lineHeight: '60px', letterSpacing: '-0.02em' }],
       },
       keyframes: {
         marquee: {

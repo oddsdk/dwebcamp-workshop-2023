@@ -153,11 +153,11 @@
     <SequenceInput on:input={search} />
     {#if sequences === null}
       <div class="grid grid-flow-col">
-        <div class="text-lg">No matching sequences found.</div>
+        <div class="text-body-lg">No matching sequences found.</div>
       </div>
     {:else if sequences.length === 0}
       <div class="grid grid-flow-col">
-        <div class="text-lg">Enter some integers.</div>
+        <div class="text-body-lg">Enter some integers.</div>
       </div>
     {:else}
       <SearchResults {sequences} on:save={saveSequence} />

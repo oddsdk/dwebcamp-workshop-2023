@@ -19,7 +19,7 @@
 <div class="modal">
   <div class="modal-box w-narrowModal relative text-center">
     <div>
-      <h3 class="mb-8 text-base">Connect a backup device</h3>
+      <h3 class="mb-8 text-body-m">Connect a backup device</h3>
       <div class="w-max m-auto mb-7 rounded-lg overflow-hidden">
         {@html qrcode}
       </div>
@@ -32,14 +32,14 @@
       </button>
       {#if !backupCreated}
         <button
-          class="btn btn-xs btn-link text-sm font-normal underline mt-4"
+          class="btn btn-xs btn-link text-body-sm font-normal underline mt-4"
           on:click={() => goto('/backup?view=are-you-sure')}
         >
           Skip for now
         </button>
       {:else}
         <a
-          class="btn btn-xs btn-link text-sm font-normal underline mt-4"
+          class="btn btn-xs btn-link text-body-sm font-normal underline mt-4"
           href="/"
         >
           Cancel

@@ -8,7 +8,7 @@
 <div class="modal">
   <div class="modal-box w-narrowModal relative text-center">
     <div>
-      <h3 class="mb-14 text-base">
+      <h3 class="mb-14 text-body-m">
         Welcome, {$sessionStore.username.trimmed}!
       </h3>
       <div class="flex justify-center mb-11 text-base-content">

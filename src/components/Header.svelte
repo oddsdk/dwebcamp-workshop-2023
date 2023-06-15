@@ -36,7 +36,7 @@
         on:click={() => goto('/')}
       >
         <BrandLogo />
-        <span class="text-lg font-medium text-base-content">Sequences</span>
+        <span class="text-body-lg font-medium text-base-content">Sequences</span>
       </div>
     {/if}
   </div>
@@ -48,7 +48,7 @@
       on:click={() => goto('/')}
     >
       <BrandLogo />
-      <span class="text-lg font-medium text-base-content">Sequences</span>
+      <span class="text-body-lg font-medium text-base-content">Sequences</span>
     </div>
   {/if}
 

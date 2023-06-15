@@ -2,27 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'ApfelGrotezk';
+  src: url('/fonts/ApfelGrotezk-Fett.woff2') format('woff2'),
+        url('/fonts/ApfelGrotezk-Fett.woff') format('woff');
+  font-weight: 400 700;
+  font-style: normal;
+}
 
 @font-face {
-  font-family: 'UncutSans';
-  src: url('/fonts/UncutSans-Variable.ttf') format('truetype');
+  font-family: 'Literata';
+  src: url('/fonts/Literata-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 600;
+  font-style: normal;
 }
 
-h1, h2, h3 {
-  @apply font-bold;
-}
-
-h4, h5, h6 {
-  @apply font-medium;
-}
+h1, h2, h3, h4, h5, h6 {
+  @apply font-sans;
+} 
 
 body, input {
-  @apply font-sans;
+  @apply font-serif;
 }
 
 /* Button default styles */
 .btn {
-  @apply font-medium;
+  @apply font-sans;
   @apply border-2;
   @apply min-h-0;
 }
@@ -37,20 +42,18 @@ body, input {
 }
 
 .btn-outline {
-  @apply text-sm;
+  @apply text-btn;
   @apply text-base-content;
   @apply border-base-content;
   @apply bg-base-100;
-  @apply shadow-orange;
   @apply h-10;
   @apply px-4;
 }
 
 .btn-primary {
-  @apply text-sm;
+  @apply text-btn;
   @apply text-neutral-900;
   @apply border-neutral-900;
-  @apply shadow-orange;
   @apply bg-gradient-to-r;
   @apply from-orange-300;
   @apply to-orange-600;
@@ -92,5 +95,5 @@ body, input {
 }
 
 .label-text-alt {
-  @apply text-sm;
+  @apply text-body-sm;
 }

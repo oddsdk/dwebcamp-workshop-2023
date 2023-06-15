@@ -113,7 +113,7 @@
         ✕
       </label>
       <div>
-        <h3 class="mb-7 text-lg break-all">{image.name}</h3>
+        <h3 class="mb-7 text-body-lg break-all">{image.name}</h3>
 
         <div class="relative">
           {#if showPreviousArrow}

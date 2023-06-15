@@ -3,12 +3,12 @@
 </script>
 
 <div
-  class="min-h-[calc(100vh-128px)] md:min-h-[calc(100vh-160px)] pt-8 md:pt-16 flex flex-col items-start max-w-[690px] m-auto gap-10 pb-5 text-sm"
+  class="min-h-[calc(100vh-128px)] md:min-h-[calc(100vh-160px)] pt-8 md:pt-16 flex flex-col items-start max-w-[690px] m-auto gap-10 pb-5 text-body-sm"
 >
-  <h1 class="text-xl">Welcome, {$sessionStore.username.trimmed}!</h1>
+  <h1 class="text-heading-lg">Welcome, {$sessionStore.username.trimmed}!</h1>
 
   <div class="flex flex-col items-start justify-center gap-5">
-    <h2 class="text-lg">Photo Gallery Demo</h2>
+    <h2 class="text-body-lg">Photo Gallery Demo</h2>
     <p>
       The ODD SDK makes it easy to implement private, encrypted, user-owned
       storage in your app. See it in action with our photo gallery demo.
@@ -17,7 +17,7 @@
   </div>
 
   <div class="flex flex-col items-start justify-center gap-5">
-    <h2 class="text-lg">Device Connection Demo</h2>
+    <h2 class="text-body-lg">Device Connection Demo</h2>
     <p>
       With the ODD SDK, a user’s account lives only on their connected devices —
       entirely under their control. It’s easy for them to connect as many

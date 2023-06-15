@@ -21,7 +21,7 @@
 </script>
 
 <div>
-  <h3 class="text-lg mb-4">Avatar</h3>
+  <h3 class="text-body-lg mb-4">Avatar</h3>
   <div class="flex items-center gap-4">
     <Avatar />
 

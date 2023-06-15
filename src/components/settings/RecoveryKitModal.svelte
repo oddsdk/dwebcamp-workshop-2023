@@ -47,7 +47,7 @@
 
     <div>
       {#await recoveryKitPromise}
-        <h3 class="mb-7 text-base">Creating your recovery kit...</h3>
+        <h3 class="mb-7 text-body-m">Creating your recovery kit...</h3>
 
         <div class="flex items-center justify-center text-base-content">
           <span
@@ -55,7 +55,7 @@
           />
         </div>
       {:then}
-        <h3 class="mb-7 text-base">Your recovery kit has been created!</h3>
+        <h3 class="mb-7 text-body-m">Your recovery kit has been created!</h3>
 
         <div class="text-left mb-6">
           <p class="mb-2">Please store it somewhere safe for two reasons:</p>

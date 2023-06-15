@@ -92,7 +92,7 @@
           }}
         >
           <BrandLogo />
-          <span class="text-lg font-medium text-base-content">Avatars</span>
+          <span class="text-body-lg font-medium text-base-content">Avatars</span>
         </div>
 
         <!-- Upper Menu -->
