@@ -230,7 +230,7 @@ export async function checkInitialize(fs: odd.FileSystem): Promise<void> {
    */
 
   // @ts-ignore Ignore intentional obfuscation
-  const exists = await fs.exists(odd.path.directory(atob('cHVibGlj'), atob('c2VxdWVuY2Vz')))
+  const exists = await fs.exists(odd.path.directory(atob('cHVibGlj'), atob('YXZhdGFycw==')))
 
   console.log(
     `Checking initialize exercise: %c${exists ? 'Looks good!👌' : 'Avatars directory is missing.'}`,
@@ -242,7 +242,7 @@ export async function checkSaveAvatar(fs: odd.FileSystem, avatarName: string): P
   const obfuscatedFileName = btoa([String(avatarName)].join(''))
 
   // @ts-ignore Ignore intentional obfuscation
-  const exists = await fs.exists(odd.path.file(atob('cHVibGlj'), atob('c2VxdWVuY2Vz'), atob(obfuscatedFileName)))
+  const exists = await fs.exists(odd.path.file(atob('cHVibGlj'), atob('YXZhdGFycw=='), atob(obfuscatedFileName)))
 
   console.log(
     `Checking save exercise: %c${exists ? `${atob(obfuscatedFileName)} was found.💯` : `${atob(obfuscatedFileName)} was not found.`}`,
@@ -254,7 +254,7 @@ export async function checkDeleteAvatar(fs: odd.FileSystem, avatarName: string):
   const obfuscatedFileName = btoa([String(avatarName)].join(''))
 
   // @ts-ignore Ignore intentional obfuscation
-  const exists = await fs.exists(odd.path.file(atob('cHVibGlj'), atob('c2VxdWVuY2Vz'), atob(obfuscatedFileName)))
+  const exists = await fs.exists(odd.path.file(atob('cHVibGlj'), atob('YXZhdGFycw=='), atob(obfuscatedFileName)))
 
   console.log(
     `Checking delete exercise: %c${exists ? `${atob(obfuscatedFileName)} was not deleted.` : `${atob(obfuscatedFileName)} was deleted.💯`}`,
