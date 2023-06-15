@@ -17,7 +17,7 @@
   {#if $galleryStore.loading}
     <div class="flex justify-center items-center p-12">
       <div
-        class="loader ease-linear rounded-full border-4 border-t-4 border-t-odd-blue-500 border-odd-gray-500 h-16 w-16 animate-spin"
+        class="loader ease-linear rounded-full border-4 border-t-4 border-t-odd-gray-100 border-odd-blue-500 h-16 w-16 animate-spin"
       />
     </div>
   {:else}

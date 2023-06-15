@@ -99,9 +99,10 @@ body, input {
 
 /* Modal default styles */
 .modal-box {
-  @apply p-8;
+  @apply p-12;
   @apply border-2;
-  @apply border-base-content;
+  @apply border-base-content; 
+  @apply max-w-2xl;
 }
 
 /* Label default styles */

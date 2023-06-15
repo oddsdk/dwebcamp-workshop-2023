@@ -101,19 +101,19 @@
   />
   <label
     for={`image-modal-${image.cid}`}
-    class="modal cursor-pointer z-50"
+    class="modal bg-base-100 bg-opacity-75 cursor-pointer z-50"
     on:click|self={handleCloseModal}
   >
     <div class="modal-box relative text-center text-base-content">
       <label
         for={`image-modal-${image.cid}`}
-        class="btn btn-xs btn-circle absolute right-2 top-2"
+        class="btn btn-xs btn-circle !bg-base-content !text-base-100 absolute right-2 top-2"
         on:click={handleCloseModal}
       >
         ✕
       </label>
       <div>
-        <h3 class="mb-7 text-body-lg break-all">{image.name}</h3>
+        <h3 class="mb-6 text-heading-lg break-all">{image.name}</h3>
 
         <div class="relative">
           {#if showPreviousArrow}
@@ -125,7 +125,7 @@
             </button>
           {/if}
           <img
-            class="block object-cover object-center border-2 border-base-content w-full h-full mb-4 rounded-[1rem]"
+            class="block object-cover object-center w-full h-full mb-4 rounded-[1rem]"
             alt={`Image: ${image.name}`}
             src={image.src}
           />
@@ -150,7 +150,23 @@
             View on IPFS{#if image.private}*{/if}
           </a>
 
+          <div
+            class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-4"
+          >
+            <a
+              href={image.src}
+              download={image.name}
+              class="btn btn-primary gap-2"
+            >
+              <Download /> Download Image
+            </a>
+            <button class="btn btn-outline gap-2" on:click={handleDeleteImage}>
+              <Trash /> Delete Image
+            </button>
+          </div>
+
           {#if image.private}
+          <div class="mt-8 text-body-xs">
             <p class="mb-2 text-odd-gray-400 dark:text-odd-gray-300">
               * Your private files can only be viewed on devices that have
               permission. When viewed directly on IPFS, you will see the
@@ -166,22 +182,8 @@
                 github issue.
               </a>
             </p>
-          {/if}
-
-          <div
-            class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-4"
-          >
-            <a
-              href={image.src}
-              download={image.name}
-              class="btn btn-primary gap-2"
-            >
-              <Download /> Download Image
-            </a>
-            <button class="btn btn-outline gap-2" on:click={handleDeleteImage}>
-              <Trash /> Delete Image
-            </button>
           </div>
+          {/if}
         </div>
       </div>
     </div>
