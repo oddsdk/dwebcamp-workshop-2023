@@ -233,7 +233,7 @@ export async function checkInitialize(fs: odd.FileSystem): Promise<void> {
   const exists = await fs.exists(odd.path.directory(atob('cHVibGlj'), atob('YXZhdGFycw==')))
 
   console.log(
-    `Checking initialize exercise: %c${exists ? 'Looks good!👌' : 'Avatars directory is missing.'}`,
+    `Checking initialize activity: %c${exists ? 'Looks good!👌' : 'Avatars directory is missing.'}`,
     `${exists ? 'color: #15803D' : 'color: #DC2626'}`
   )
 }
@@ -245,7 +245,7 @@ export async function checkSaveAvatar(fs: odd.FileSystem, avatarName: string): P
   const exists = await fs.exists(odd.path.file(atob('cHVibGlj'), atob('YXZhdGFycw=='), atob(obfuscatedFileName)))
 
   console.log(
-    `Checking save exercise: %c${exists ? `${atob(obfuscatedFileName)} was found.💯` : `${atob(obfuscatedFileName)} was not found.`}`,
+    `Checking saveAvatar activity: %c${exists ? `${atob(obfuscatedFileName)} was found.💯` : `${atob(obfuscatedFileName)} was not found.`}`,
     `${exists ? 'color: #15803D' : 'color: #DC2626'}`
   )
 }
@@ -257,7 +257,7 @@ export async function checkDeleteAvatar(fs: odd.FileSystem, avatarName: string):
   const exists = await fs.exists(odd.path.file(atob('cHVibGlj'), atob('YXZhdGFycw=='), atob(obfuscatedFileName)))
 
   console.log(
-    `Checking delete exercise: %c${exists ? `${atob(obfuscatedFileName)} was not deleted.` : `${atob(obfuscatedFileName)} was deleted.💯`}`,
+    `Checking deleteAvatar activity: %c${exists ? `${atob(obfuscatedFileName)} was not deleted.` : `${atob(obfuscatedFileName)} was deleted.💯`}`,
     `${exists ? 'color: #DC2626' : 'color: #15803D'}`
   )
 }
