@@ -117,7 +117,7 @@ module.exports = {
         'body-m': ['20px', { lineHeight: '30px' }],
         'body-lg': ['24px', { lineHeight: '36px' }],
         'heading-sm': ['16px', { lineHeight: '17px', textTransform: 'uppercase', letterSpacing: '0.04em' }],
-        'heading-m': ['24px', { lineHeight: '30px', letterSpacing: '-0.02em' }],
+        'heading-m': ['28px', { lineHeight: '30px', letterSpacing: '-0.02em' }],
         'heading-lg': ['38px', { lineHeight: '41px', letterSpacing: '-0.02em' }],
         'heading-xl': ['50px', { lineHeight: '54px', letterSpacing: '-0.02em' }],
         'heading-2xl': ['56px', { lineHeight: '60px', letterSpacing: '-0.02em' }],

@@ -9,7 +9,7 @@
   {:else}
     <p>You have no other connected devices.</p>
   {/if}
-  <a class="btn btn-outline" href="/delegate-account">
-    Connect an additional device
+  <a class="btn btn-primary" href="/delegate-account">
+    Connect an Additional Device
   </a>
 </div>
