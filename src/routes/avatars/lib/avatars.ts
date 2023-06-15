@@ -10,12 +10,13 @@ import { addNotification } from '$lib/notifications'
 
 export type Avatar = {
   name: string
-  src: string
+  file: File
+  src?: string
 }
 
 
 /**
- * Handle uploads made by interacting with the file input directly
+ * Render images ODD by transmogrification
  */
 export const transmogrify: (
   files: FileList
@@ -41,11 +42,11 @@ export const transmogrify: (
 
         // Convert image to base64
         const blob = await offscreen.convertToBlob()
-        const src = await toBase64(blob)
+        const renderedFile = new File([blob], file.name )
 
         addNotification(`Avatar ${file.name} transmogrified and available for summoning.`, 'success')
 
-        return { name: file.name, src }
+        return { name: file.name, file: renderedFile }
       } else {
         addNotification(`Could not detect a face in ${file.name}. Please try again.`)
 
@@ -58,11 +59,13 @@ export const transmogrify: (
 }
 
 export async function getAvatarsFromListing(listing: { [ name: string ]: Link }, fs: odd.FileSystem): Promise<Avatar[]> {
-  return await Promise.all(Object.keys(listing).map(async key => {
-    const filePath = odd.path.file('public', 'avatars', key)
-    const encodedContent = await fs.read(filePath)
+  return await Promise.all(Object.keys(listing).map(async name => {
+    const filePath = odd.path.file('public', 'avatars', name)
+    const bytes = await fs.read(filePath)
+    const file = new File([ bytes ], name)
+    const src = URL.createObjectURL(file)
 
-    return JSON.parse(new TextDecoder().decode(encodedContent))
+    return { name, file, src }
   }))
 }
 
@@ -202,21 +205,18 @@ function getYTranslation(oddWidth: number, keypoints: faceLandmarksDetection.Key
 
 // Utils
 
+export async function fileToUint8Array(file: File): Promise<Uint8Array> {
+  return new Uint8Array(
+    await new Blob([ file ]).arrayBuffer()
+  )
+}
+
 function getWidth(keypoints: faceLandmarksDetection.Keypoint[]): number {
   return Math.max(...keypoints.map(keypoint => keypoint.x)) - Math.min(...keypoints.map(keypoint => keypoint.x))
 }
 
 function getHeight(keypoints: faceLandmarksDetection.Keypoint[]): number {
   return Math.max(...keypoints.map(keypoint => keypoint.y)) - Math.min(...keypoints.map(keypoint => keypoint.y))
-}
-
-function toBase64(blob: Blob): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.readAsDataURL(blob)
-    reader.onload = () => resolve(reader.result as string)
-    reader.onerror = reject
-  })
 }
 
 

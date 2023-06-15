@@ -3,7 +3,7 @@
   import { onDestroy } from 'svelte'
   import FileUploadCard from '$routes/avatars/components/upload/FileUploadCard.svelte'
 
-  import { checkInitialize, checkSaveAvatar, type Avatar } from '$routes/avatars/lib/avatars'
+  import { type Avatar, checkInitialize, checkSaveAvatar, fileToUint8Array } from '$routes/avatars/lib/avatars'
   import { filesystemStore, themeStore } from '$src/stores'
 
   let fs: odd.FileSystem
@@ -97,9 +97,9 @@
        * The file system interface has a write function for saving files:
        * https://docs.odd.dev/file-system-wnfs#write
        *
-       * Use the path we created above to write the encodedContent.
+       * Use the path we created above to write the file as bytes.
        */
-      const encodedContent = new TextEncoder().encode(JSON.stringify(avatar))
+      const bytes = await fileToUint8Array(avatar.file)
 
       // TODO Write the file
 
