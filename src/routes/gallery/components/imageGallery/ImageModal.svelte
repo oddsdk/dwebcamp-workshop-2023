@@ -139,25 +139,25 @@
           {/if}
         </div>
         <div class="flex flex-col items-center justify-center">
-          <p class="mb-2 text-neutral-500">
+          <p class="mb-2 text-odd-gray-300">
             Created {new Date(image.ctime).toDateString()}
           </p>
           <a
             href={`https://ipfs.${ipfsGatewayUrl}/ipfs/${image.cid}/userland`}
             target="_blank"
-            class="underline mb-2 hover:text-neutral-500"
+            class="underline mb-2 hover:text-odd-gray-300"
           >
             View on IPFS{#if image.private}*{/if}
           </a>
 
           {#if image.private}
-            <p class="mb-2 text-neutral-700 dark:text-neutral-500">
+            <p class="mb-2 text-odd-gray-400 dark:text-odd-gray-300">
               * Your private files can only be viewed on devices that have
               permission. When viewed directly on IPFS, you will see the
               encrypted state of this file. This is because the raw IPFS gateway
               view does not have permission to decrypt this file.
             </p>
-            <p class="mb-2 text-neutral-700 dark:text-neutral-500">
+            <p class="mb-2 text-odd-gray-400 dark:text-odd-gray-300">
               Interested in private file sharing as a feature? Follow the <a
                 class="underline"
                 href="https://github.com/oddsdk/odd-app-template/issues/4"

@@ -28,8 +28,10 @@ body, input {
 /* Button default styles */
 .btn {
   @apply font-sans;
-  @apply border-2;
-  @apply min-h-0;
+  @apply border-0;
+  @apply h-10;
+  @apply transition-colors; 
+  @apply ease-in;
 }
 
 .btn-circle {
@@ -46,29 +48,30 @@ body, input {
   @apply text-base-content;
   @apply border-base-content;
   @apply bg-base-100;
-  @apply h-10;
   @apply px-4;
 }
 
 .btn-primary {
   @apply text-btn;
-  @apply text-neutral-900;
-  @apply border-neutral-900;
-  @apply bg-gradient-to-r;
-  @apply from-orange-300;
-  @apply to-orange-600;
+  @apply text-odd-gray-100;
+  @apply bg-odd-blue-500;
   @apply h-10;
   @apply px-4;
 }
 
 .btn-primary:disabled {
   @apply opacity-50;
-  @apply text-neutral-900;
-  @apply border-neutral-900;
+  @apply text-odd-gray-500;
+  @apply border-odd-gray-500;
 }
 
-.btn-primary:hover, .btn-warning:hover {
-  @apply border-neutral-900;
+.btn-warning {
+  @apply bg-odd-pink-500;
+  @apply text-odd-gray-100;
+}
+
+.btn-warning:hover {
+  @apply bg-odd-pink-400;
 }
 
 .btn-link {

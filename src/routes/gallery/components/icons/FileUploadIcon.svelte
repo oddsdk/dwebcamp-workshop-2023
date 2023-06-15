@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="66" fill="none">
   <path
-    stroke="#171717"
+    stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke-width="2"

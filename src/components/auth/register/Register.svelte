@@ -89,9 +89,9 @@
         <input
           id="registration"
           type="text"
-          class="input input-bordered bg-neutral-50 !text-neutral-900 dark:border-neutral-900 rounded-lg focus:outline-none w-full px-3 block {usernameApproved
-            ? '!border-green-300'
-            : ''} {usernameError ? '!border-red-400' : ''}"
+          class="input input-bordered bg-odd-gray-100!text-odd-gray-500 dark:border-odd-gray-500 rounded-lg focus:outline-none w-full px-3 block {usernameApproved
+            ? '!border-odd-green-300'
+            : ''} {usernameError ? '!border-odd-red-500' : ''}"
           class:input-error={username.length !== 0 &&
             (!usernameValid || !usernameAvailable)}
           on:input={checkUsername}
@@ -129,7 +129,7 @@
           for="registration"
           class="label mt-4 !p-0 hidden peer-checked:block"
         >
-          <span class="text-red-400 text-left">
+          <span class="text-odd-red-500 text-left">
             In order to ensure the security of your private data, the ODD SDK
             does not recommend creating an account from a public or shared
             computer.
@@ -139,13 +139,13 @@
 
       <div class="flex items-center mt-4">
         <a
-          class="!h-[52px] btn btn-outline !text-neutral-900 !border-neutral-900 !bg-neutral-50"
+          class="!h-[52px] btn btn-outline !text-odd-gray-500 !border-odd-gray-500 !bg-neutral-50"
           href="/"
         >
           Cancel
         </a>
         <button
-          class="ml-2 !h-[52px] flex-1 btn btn-primary disabled:opacity-50 disabled:border-neutral-900 disabled:text-neutral-900"
+          class="ml-2 !h-[52px] flex-1 btn btn-primary disabled:opacity-50 disabled:border-odd-gray-500 disabled:text-odd-gray-500"
           disabled={username.length === 0 ||
             !usernameValid ||
             !usernameAvailable ||
@@ -169,7 +169,7 @@
       </button>
       {#if existingAccount}
         <div
-          class="flex flex-col gap-4 p-6 rounded bg-neutral-200 text-neutral-900"
+          class="flex flex-col gap-4 p-6 rounded bg-odd-gray-200 text-odd-gray-500"
         >
           <h3 class="text-body-sm text-center">
             Which device are you connected on?

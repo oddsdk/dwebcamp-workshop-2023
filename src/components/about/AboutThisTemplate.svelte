@@ -6,7 +6,7 @@
   <div class="max-w-[573px]">
     <p class="mb-5">
       <a
-        class="link text-blue-600 whitespace-nowrap"
+        class="link text-odd-blue-500 whitespace-nowrap"
         href="https://github.com/oddsdk/ts-odd"
         target="_blank"
       >
@@ -18,7 +18,7 @@
     <p>
       You can fork this
       <a
-        class="link text-blue-600 whitespace-nowrap"
+        class="link text-odd-blue-500 whitespace-nowrap"
         href="https://github.com/oddsdk/odd-app-template"
         target="_blank"
       >
@@ -27,7 +27,7 @@
       </a>
       to start writing your own ODD app. Learn more in the
       <a
-        class="link text-blue-600 whitespace-nowrap"
+        class="link text-odd-blue-500 whitespace-nowrap"
         href="https://guide.fission.codes/"
         target="_blank"
       >

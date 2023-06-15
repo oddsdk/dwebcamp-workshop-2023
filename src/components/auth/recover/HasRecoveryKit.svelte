@@ -92,7 +92,7 @@
   <h1 class="text-heading-lg">Recover your account</h1>
 
   {#if state === RECOVERY_STATES.Done}
-    <h3 class="flex items-center gap-2 font-normal text-body-m text-green-600">
+    <h3 class="flex items-center gap-2 font-normal text-body-m text-odd-green-600">
       <Check /> Account recovered!
     </h3>
     <p>

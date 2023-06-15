@@ -62,7 +62,7 @@
   on:dragleave={handleDragLeave}
   for="dropzone-file"
   class="block w-full min-h-[calc(100vh-190px)] rounded-lg border-2 border-solid border-base-content transition ease-in cursor-pointer {isDragging
-    ? 'border-dashed !border-orange-700 bg-orange-50'
+    ? 'border-dashed !border-odd-blue-500 bg-odd-blue-100'
     : ''}"
 >
   <slot />
