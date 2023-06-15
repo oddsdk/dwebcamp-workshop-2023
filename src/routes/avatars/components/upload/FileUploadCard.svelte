@@ -5,6 +5,7 @@
   import FileUploadIcon from '$routes/avatars/components/icons/FileUploadIcon.svelte'
 
   const dispatch = createEventDispatcher()
+  let input
 
   async function handleFileInput(event: { currentTarget: HTMLInputElement }) {
     const avatars = await transmogrify(event.currentTarget.files)
@@ -12,6 +13,8 @@
     if (avatars.length > 0) {
       dispatch('save', { avatar: avatars[0] })
     }
+
+    input['value'] = null
   }
 </script>
 
@@ -27,6 +30,7 @@
     <p class="text-xxs">SVG, PNG, JPG or GIF</p>
   </div>
   <input
+    bind:this={input}
     id="upload-file"
     type="file"
     multiple={false}
