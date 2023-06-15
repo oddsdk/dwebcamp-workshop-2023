@@ -48,10 +48,10 @@
   })
 </script>
 
-<section class="overflow-hidden text-gray-700">
-  <div class="pt-8 p-6 md:p-8 mx-auto">
+<section class="mt-8 overflow-hidden">
+  <div class="">
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:lg:grid-cols-6 gap-4"
+      class="grid grid-cols-2 lg:grid-cols-4 xl:lg:grid-cols-6 gap-4"
     >
       <FileUploadCard />
       {#each $galleryStore.selectedArea === AREAS.PRIVATE ? $galleryStore.privateImages : $galleryStore.publicImages as image}

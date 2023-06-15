@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 body, input {
   @apply font-serif;
   @apply text-body-m;
-  font-weight: 250;
+  font-weight: 350;
 }
 
 /* Button default styles */
