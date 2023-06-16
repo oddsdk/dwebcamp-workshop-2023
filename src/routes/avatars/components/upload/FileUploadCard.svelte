@@ -1,15 +1,20 @@
 <script lang="ts">
-  import { avatarsStore } from '$routes/avatars/stores'
+  import { createEventDispatcher } from 'svelte'
+
   import { transmogrify } from '$routes/avatars/lib/avatars'
   import FileUploadIcon from '$routes/avatars/components/icons/FileUploadIcon.svelte'
 
-  async function handleFileInput(event: { currentTarget: HTMLInputElement }) {
-    const images = await transmogrify(event.currentTarget.files)
+  const dispatch = createEventDispatcher()
+  let input
 
-    avatarsStore.update(store => ({
-      ...store,
-      images: [...store.images, ...images]
-    }))
+  async function handleFileInput(event: { currentTarget: HTMLInputElement }) {
+    const avatars = await transmogrify(event.currentTarget.files)
+
+    if (avatars.length > 0) {
+      dispatch('save', { avatar: avatars[0] })
+    }
+
+    input['value'] = null
   }
 </script>
 
@@ -23,9 +28,10 @@
     <p class="text-body-xs">SVG, PNG, JPG or GIF</p>
   </div>
   <input
+    bind:this={input}
     id="upload-file"
     type="file"
-    multiple
+    multiple={false}
     accept="image/*"
     class="hidden"
     on:input={handleFileInput}

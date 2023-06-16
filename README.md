@@ -4,38 +4,38 @@
 
 Welcome to the workshop! 👋
 
-We'll be creating a sequence explorer to search and collect sequences from the [On-line Encyclopedia of Integer Sequences (OEIS)](https://oeis.org/).
+We'll be hacking on an app that transmogrifies avatars sending them to a new, odd dimension where you can summon them anywhere across the DWeb.
 
-The completed workshop will include search and collection views:
+The completed workshop will include transmogrify and summon views:
 
-![Sequences search screenshot](static//sequences/search.png)
-![Sequences collection screenshot](static//sequences/collection.png)
+![Avatars transmogrify screenshot](static//sequences/search.png)
+![Avatars summon screenshot](static//sequences/collection.png)
 
 ## Preparation
 
-Please ensure you have installed `node` and `git` on your machine before the workshop begins. We will have little time, and installing these beforehand will help the workshop run smoothly.
+Please ensure you have installed `node` and `git` on your machine:
 
 - Install git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 - Install node: https://nodejs.org/en/download
 
-If you already have `node` on your machine, check that you have `v18.0.0` or newer.
+If you already have `node` installed, check that you have `v18.0.0` or newer.
 
-You'll also want to install a code editor on your machine. We'd recommend [VSCode](https://code.visualstudio.com/download), but any code editor will be fine.
+You'll also want to install a code editor on your machine. We recommend [VSCode](https://code.visualstudio.com/download), but any code editor will be fine.
 
 ## Running the app
 
-Clone the ODD App Template repository:
+Clone the workshop repository:
 
 ```sh
-git clone https://github.com/oddsdk/odd-app-template.git
+git clone https://github.com/oddsdk/dwebcamp-workshop-2023
 ```
 
-The directory will be cloned into the directory where you run this command. It might be convenient to run this command from your Desktop to have the project readily available.
+The workshop code will be cloned into the directory where you run this command. It might be convenient to run this command from your Desktop to have the project readily available.
 
 Install the project dependencies:
 
 ```sh
-cd causal-islands-workshop-2023
+cd dwebcamp-workshop-2023
 npm install
 ```
 
@@ -45,28 +45,23 @@ Run the app:
 npm run dev
 ```
 
-Open a web browser and navigate to [localhost:5173](http://localhost:5173), and you should see the app running. Ask for help if you don't!
+Open Chrome or Firefox, navigate to [localhost:5173](http://localhost:5173), and you should see the app running. Ask for help if you don't!
 
-## Workshop exercises
+## Workshop activities
 
 Now that the app is running, we can start writing some code. 🙌
 
-The starter code implements an OEIS search and displays matching sequences. Using the ODD SDK, we'll save sequences to the Webnative File System (WNFS). We'll also view the saved sequences on IPFS and explore content identifiers (CIDs).
+The starter code implements transmogrification and an avatar gallery. Using the ODD SDK, we'll save avatars to the Webnative File System (WNFS). We'll also view our saved avatars on IPFS and explore content identifiers (CIDs).
 
-All of the exercises are in two files:
+All of the activities are in two files:
 
-- Search component: https://github.com/oddsdk/odd-app-template/blob/causal-islands-2023/src/routes/sequences/components/Search.svelte
-- Collection component: https://github.com/oddsdk/odd-app-template/blob/causal-islands-2023/src/routes/sequences/components/Collection.svelte
+- Transmogrify component: `src/routes/avatars/components/Transmogrify.svelte`
+- Summon component: `src/routes/avatars/components/Summon.svelte`
 
-These files are Svelte components, but you will only need to write JavaScript to complete the exercises. Each time you save a file, the web app should update without running another command.
+These files are [Svelte](https://svelte.dev/) components, but you will only need to write JavaScript to complete the activities. Each time you save a file, the web app should update without running another command.
 
-Connect as a new user in the app and navigate to the `Sequences` page from the sidebar.
+Connect as a new user in the app and navigate to the `Avatars` page from the sidebar.
 
-Open the Search and Collection components in your code editor:
+Open the Transmogrify and Summon components in your code editor. Start with the Transmogrify component, then move on to the Summon component.
 
-- Search component: `src/routes/sequences/components/Search.svelte`
-- Collection component: `src/routes/sequences/components/Collection.svelte`
-
-Start with the Search component, then move on to the Collection component.
-
-Each file has exercises marked with `TODO` and comments describing the exercise. A few additional exercises are marked `OPTIONAL ADVANCED EXERCISE`. Save these for last, and don't worry if you don't complete them! They are advanced for a reason.
+Each file has activities marked with `TODO` and comments describing the activity. A few additional activities are marked `OPTIONAL ADVANCED ACTIVITY`. Save these for last, and don't worry if you don't complete them! They are advanced for a reason.
