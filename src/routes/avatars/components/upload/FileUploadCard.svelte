@@ -15,13 +15,11 @@
 
 <label
   for="upload-file"
-  class="w-64 group btn !p-0 !h-auto flex flex-col justify-center items-center aspect-[22/23] object-cover rounded-lg shadow-orange hover:border-neutral-500 overflow-hidden transition-colors ease-in bg-base-100 border-2 box-content border-neutral cursor-pointer"
+  class="btn btn-primary !p-0 !h-40 flex flex-col justify-center items-center aspect-[22/23] object-cover overflow-hidden transition-colors ease-in  box-content cursor-pointer"
 >
   <div class="flex flex-col justify-center items-center pt-5 pb-6">
     <FileUploadIcon />
-    <p class="mt-4 mb-2 text-body-sm">
-      <span class="font-bold text-body-sm">Upload a photo</span>
-    </p>
+    <span class="mt-2 font-bold text-body-sm">Upload a photo</span>
     <p class="text-body-xs">SVG, PNG, JPG or GIF</p>
   </div>
   <input

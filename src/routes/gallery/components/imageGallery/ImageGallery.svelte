@@ -49,15 +49,13 @@
 </script>
 
 <section class="mt-8 overflow-hidden">
-  <div class="">
-    <div
-      class="grid grid-cols-2 lg:grid-cols-4 xl:lg:grid-cols-6 gap-4"
-    >
-      <FileUploadCard />
-      {#each $galleryStore.selectedArea === AREAS.PRIVATE ? $galleryStore.privateImages : $galleryStore.publicImages as image}
-        <ImageCard {image} openModal={setSelectedImage} />
-      {/each}
-    </div>
+  <div
+    class="grid grid-cols-2 lg:grid-cols-4 xl:lg:grid-cols-6 gap-4"
+  >
+    <FileUploadCard />
+    {#each $galleryStore.selectedArea === AREAS.PRIVATE ? $galleryStore.privateImages : $galleryStore.publicImages as image}
+      <ImageCard {image} openModal={setSelectedImage} />
+    {/each}
   </div>
 
   {#if selectedImage}

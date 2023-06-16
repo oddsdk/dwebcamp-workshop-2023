@@ -15,23 +15,24 @@
   }
 </script>
 
-<div class="p-2 mb-14 text-center">
+<div class="mt-6 p-2 mb-14">
+  <h1 class="text-heading-lg mb-4">ODD Avatar Generator</h1>
   {#if $sessionStore.session}
-    <div class="flex items-center justify-center translate-y-1/2 w-fit m-auto">
-      <div class="tabs border-2 overflow-hidden border-base-content rounded-lg">
+  <div class="flex justify-content-start mb-8">
+    <div class="tabs border-2 overflow-hidden border-base-content">
         {#each AREAS as area}
           <button
             on:click={() => handleChangeTab(area)}
-            class="tab h-10 font-bold text-body-sm ease-in {$avatarsStore.selectedArea ===
+            class="tab font-sans uppercase text-heading-sm ease-in {$avatarsStore.selectedArea ===
             area
-              ? 'tab-active bg-base-content text-base-100'
+            ? 'tab-active bg-base-content text-base-100'
               : 'bg-base-100 text-base-content'}"
           >
             {area}
           </button>
         {/each}
-      </div>
     </div>
+  </div>
 
     <Container>
       {#if $avatarsStore.selectedArea === 'Transmogrify'}
