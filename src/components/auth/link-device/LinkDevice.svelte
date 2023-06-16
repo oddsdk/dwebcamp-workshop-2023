@@ -25,17 +25,17 @@
     class="modal-box w-narrowModal relative text-center dark:border-slate-600 dark:border"
   >
     <div class="grid grid-flow-row auto-rows-max gap-7">
-      <h3 class="text-base">Connect to {appName}</h3>
+      <h3 class="text-body-m">Connect to {appName}</h3>
       <div class="grid grid-flow-row auto-rows-max gap-4 justify-items-center">
         {#if pin}
           <span
             on:click={copyCode}
-            class="btn text-base-100 hover:text-base-100 bg-base-content hover:bg-base-content border-0 btn-lg rounded-full text-deviceCode tracking-[.18em] w-3/4 cursor-pointer font-mono font-light"
+            class="btn text-base-100 hover:text-base-100 bg-base-content hover:bg-base-content border-0 btn-lg rounded-full text-body-lg tracking-[.18em] w-3/4 cursor-pointer font-mono font-light"
           >
             {pin}
           </span>
         {/if}
-        <span class="text-sm text-left">
+        <span class="text-body-sm text-left">
           Enter this code on your connected device.
         </span>
         <div
@@ -49,7 +49,7 @@
       </div>
       <div>
         <button
-          class="btn btn-outline text-base mt-4"
+          class="btn btn-outline text-body-m mt-4"
           on:click={cancelConnection}
         >
           Cancel Request

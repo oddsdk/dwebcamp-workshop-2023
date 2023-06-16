@@ -47,7 +47,7 @@
   {:else}
     <SidebarNav>
       <Header />
-      <div class="px-4">
+      <div class="px-6">
         <slot />
       </div>
     </SidebarNav>

@@ -27,19 +27,20 @@
   onDestroy(unsubscribe)
 </script>
 
-<div class="p-2 mb-14 text-center">
+<div class="mt-6 p-2 mb-14">
+  <h1 class="text-heading-lg mb-4">Photo Gallery</h1>
   {#if $sessionStore.session}
-    <div class="flex items-center justify-center translate-y-1/2 w-fit m-auto">
-      <div class="tabs border-2 overflow-hidden border-base-content rounded-lg">
+    <div class="flex justify-content-start">
+      <div class="tabs border-2 overflow-hidden border-base-content">
         {#each Object.keys(AREAS) as area}
           <button
             on:click={() => handleChangeTab(AREAS[area])}
-            class="tab h-10 font-bold text-sm ease-in {$galleryStore.selectedArea ===
+            class="tab font-sans uppercase text-heading-sm ease-in {$galleryStore.selectedArea ===
             AREAS[area]
               ? 'tab-active bg-base-content text-base-100'
               : 'bg-base-100 text-base-content'}"
           >
-            {AREAS[area]} Photos
+            {AREAS[area]}
           </button>
         {/each}
       </div>

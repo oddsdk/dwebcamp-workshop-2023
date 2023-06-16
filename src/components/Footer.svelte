@@ -8,19 +8,17 @@
 </script>
 
 <div
-  class="fixed z-0 lg:z-20 right-0 bottom-0 left-0 h-8 flex items-center motion-reduce:justify-center motion-safe:justify-end bg-neutral-700 dark:bg-neutral-200 overflow-x-hidden"
+  class="fixed z-0 lg:z-20 right-0 bottom-0 left-0 h-8 flex items-center motion-reduce:justify-center motion-safe:justify-end bg-odd-gray-200 dark:bg-odd-gray-400 overflow-x-hidden"
 >
   {#if $themeStore.selectedTheme === 'light'}
     <p
-      class="motion-safe:animate-marquee motion-safe:left-full whitespace-nowrap font-bold text-xxs {isFirefox
-        ? 'text-orange-500'
-        : 'text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-orange-600'}"
+      class="motion-safe:animate-marquee motion-safe:left-full whitespace-nowrap font-bold text-body-xs text-odd-gray-500}"
     >
       *** Experimental *** - You are currently previewing ODD SDK Alpha 0.2
     </p>
   {:else}
     <p
-      class="motion-safe:animate-marquee motion-safe:left-full whitespace-nowrap font-bold text-xxs text-[#DD1F13]"
+      class="motion-safe:animate-marquee motion-safe:left-full whitespace-nowrap font-bold text-body-xs text-odd-yellow-500"
     >
       *** Experimental *** - You are currently previewing ODD SDK Alpha 0.2
     </p>

@@ -17,34 +17,36 @@
 
 <input type="checkbox" id="backup-device-modal" checked class="modal-toggle" />
 <div class="modal">
-  <div class="modal-box w-narrowModal relative text-center">
+  <div class="modal-box relative text-center">
     <div>
-      <h3 class="mb-8 text-base">Connect a backup device</h3>
-      <div class="w-max m-auto mb-7 rounded-lg overflow-hidden">
+      <h3 class="mb-8 text-heading-lg">Connect a backup device</h3>
+      <div class="w-max m-auto mb-7 rounded overflow-hidden">
         {@html qrcode}
       </div>
-      <p class="mb-7 text-left">
+      <p class="mb-7">
         Scan this code on the new device, or share the connection link.
       </p>
-      <button class="btn btn-outline" on:click={copyLink}>
-        <Share />
-        <span class="ml-2">Share connection link</span>
-      </button>
-      {#if !backupCreated}
-        <button
-          class="btn btn-xs btn-link text-sm font-normal underline mt-4"
-          on:click={() => goto('/backup?view=are-you-sure')}
-        >
-          Skip for now
+      <div class="flex flex-col items-center gap-2">
+        <button class="btn btn-outline" on:click={copyLink}>
+          <Share />
+          <span class="ml-2">Share connection link</span>
         </button>
-      {:else}
-        <a
-          class="btn btn-xs btn-link text-sm font-normal underline mt-4"
-          href="/"
-        >
-          Cancel
-        </a>
-      {/if}
+        {#if !backupCreated}
+          <button
+            class="btn btn-clear"
+            on:click={() => goto('/backup?view=are-you-sure')}
+          >
+            Skip for now
+          </button>
+        {:else}
+          <a
+            class="btn btn-clear"
+            href="/"
+          >
+            Cancel
+          </a>
+        {/if}
+      </div>
     </div>
   </div>
 </div>

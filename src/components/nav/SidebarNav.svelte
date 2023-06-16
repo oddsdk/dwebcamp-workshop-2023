@@ -85,14 +85,14 @@
       <div class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
         <!-- Brand -->
         <div
-          class="flex items-center gap-3 cursor-pointer mb-8"
+          class="flex items-center cursor-pointer gap-3 dark:text-odd-gray-200 mb-10"
           on:click={() => {
             handleCloseDrawer()
             goto('/')
           }}
         >
           <BrandLogo />
-          <span class="text-lg font-medium text-base-content">Avatars</span>
+          <span class="font-sans text-heading-m">Avatars</span>
         </div>
 
         <!-- Upper Menu -->

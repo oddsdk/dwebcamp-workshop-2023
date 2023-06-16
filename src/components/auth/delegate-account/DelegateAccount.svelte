@@ -32,14 +32,14 @@
 <div class="modal">
   <div class="modal-box w-narrowModal relative text-center">
     <div>
-      <h3 class="mb-8 text-base">
+      <h3 class="mb-8 text-body-m">
         A new device would like to connect to your account
       </h3>
       <div class="mb-5">
         <input
           id="pin"
           type="text"
-          class="input input-bordered w-full max-w-[197px] mb-2 rounded-full h-[68px] focus:outline-none font-mono text-deviceCode text-center tracking-[0.1em] font-light {pinError
+          class="input input-bordered w-full max-w-[197px] mb-2 rounded-full h-[68px] focus:outline-none font-mono text-body-lg text-center tracking-[0.1em] font-light {pinError
             ? '!text-red-500 !border-red-500'
             : ''}"
           maxlength="6"

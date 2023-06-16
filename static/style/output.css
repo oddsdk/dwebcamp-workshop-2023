@@ -42,7 +42,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: UncutSans;
+  font-family: 'Literata', serif;
   /* 4 */
 }
 
@@ -92,6 +92,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: 'ApfelGrotezk', sans-serif;
   font-size: inherit;
   font-weight: inherit;
 }
@@ -3162,27 +3163,27 @@ body[dir="rtl"] .checkbox:checked,
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.text-xxs {
+.text-body-xs {
   font-size: 12px;
   line-height: 16px;
 }
 
-.text-sm {
+.text-body-sm {
   font-size: 16px;
   line-height: 24px;
 }
 
-.text-xl {
+.text-heading-lg {
   font-size: 38px;
   line-height: 48px;
 }
 
-.text-lg {
+.text-body-lg {
   font-size: 24px;
   line-height: 32px;
 }
 
-.text-xs {
+.text-body-xs {
   font-size: 13px;
   line-height: 24px;
   letter-spacing: 0.1em;
@@ -3192,7 +3193,7 @@ body[dir="rtl"] .checkbox:checked,
   font-size: 40px;
 }
 
-.text-base {
+.text-body-m {
   font-size: 20px;
   line-height: 28px;
 }
@@ -3367,55 +3368,14 @@ body[dir="rtl"] .checkbox:checked,
   transition-timing-function: linear;
 }
 
-@font-face {
-  font-family: 'UncutSans';
-
-  src: url('/fonts/uncut-sans-regular-webfont.woff2') format('woff2'),
-        url('/fonts/uncut-sans-regular-webfont.woff') format('woff');
-
-  font-weight: 400;
-
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'UncutSans';
-
-  src: url('/fonts/uncut-sans-medium-webfont.woff2') format('woff2'),
-         url('/fonts/uncut-sans-medium-webfont.woff') format('woff');
-
-  font-weight: 500;
-
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'UncutSans';
-
-  src: url('/fonts/uncut-sans-bold-webfont.woff2') format('woff2'),
-        url('/fonts/uncut-sans-bold-webfont.woff') format('woff');
-
-  font-weight: 700;
-
-  font-style: normal;
-}
-
-h1, h2, h3 {
-  font-weight: 700;
-}
-
-h4, h5, h6 {
-  font-weight: 500;
-}
-
 body, input {
-  font-family: UncutSans;
+  font-family: 'Literata', serif;
 }
 
 /* Button default styles */
 
 .btn {
-  font-weight: 500;
+  font-weight: 700;
   border-width: 2px;
   min-height: 0px;
 }

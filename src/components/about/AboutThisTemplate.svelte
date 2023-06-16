@@ -1,12 +1,12 @@
 <div
-  class="min-h-[calc(100vh-128px)] md:min-h-[calc(100vh-160px)] pt-8 md:pt-16 flex flex-col items-start max-w-[690px] m-auto gap-10 pb-5 text-sm"
+  class="min-h-[calc(100vh-128px)] md:min-h-[calc(100vh-160px)] pt-8 md:pt-16 flex flex-col items-start max-w-[690px] m-auto gap-10 pb-5 text-body-sm"
 >
-  <h1 class="text-xl">About This Template</h1>
+  <h1 class="text-heading-lg">About This Template</h1>
 
   <div class="max-w-[573px]">
     <p class="mb-5">
       <a
-        class="link text-blue-600 whitespace-nowrap"
+        class="link text-odd-blue-500 whitespace-nowrap"
         href="https://github.com/oddsdk/ts-odd"
         target="_blank"
       >
@@ -18,7 +18,7 @@
     <p>
       You can fork this
       <a
-        class="link text-blue-600 whitespace-nowrap"
+        class="link text-odd-blue-500 whitespace-nowrap"
         href="https://github.com/oddsdk/odd-app-template"
         target="_blank"
       >
@@ -27,7 +27,7 @@
       </a>
       to start writing your own ODD app. Learn more in the
       <a
-        class="link text-blue-600 whitespace-nowrap"
+        class="link text-odd-blue-500 whitespace-nowrap"
         href="https://guide.fission.codes/"
         target="_blank"
       >
