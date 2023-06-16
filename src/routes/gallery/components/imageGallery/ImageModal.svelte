@@ -101,7 +101,7 @@
   />
   <label
     for={`image-modal-${image.cid}`}
-    class="modal bg-base-100 bg-opacity-75 cursor-pointer z-50"
+    class="modal cursor-pointer z-50"
     on:click|self={handleCloseModal}
   >
     <div class="modal-box relative text-center text-base-content">

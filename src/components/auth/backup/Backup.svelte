@@ -16,7 +16,7 @@
 <div class="modal">
   <div class="modal-box w-narrowModal relative text-center">
     <div id="backup-message" class="peer-checked:hidden">
-      <h3 class="mb-8 text-body-m">Backup your account</h3>
+      <h3 class="mb-8 text-heading-lg">Backup your account</h3>
       <p class="mb-5 text-left">
         Your {appName} account & its data live only on your devices.
       </p>

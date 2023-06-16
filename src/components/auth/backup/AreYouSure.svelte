@@ -18,27 +18,26 @@
 
 <input type="checkbox" id="are-you-sure-modal" checked class="modal-toggle" />
 <div class="modal">
-  <div class="modal-box w-narrowModal relative text-center">
+  <div class="modal-box relative text-center">
     <div>
-      <h3 class="mb-8 text-body-m">Are you sure?</h3>
-
-      <p class="mb-7 text-left">
+      <h3 class="mb-8 text-heading-lg">Are you sure?</h3>
+      <p class="mb-7">
         Without a backup device, if you lose this device or reset your browser,
         you will not be able to recover your account data.
       </p>
 
       <button
-        class="btn btn-primary"
+        class="mb-4 btn btn-primary"
         on:click={() => goto('/delegate-account')}
       >
         Connect a backup device
       </button>
-      <span
-        class="text-error underline block mt-4 text-body-sm text-red-600 cursor-pointer"
+      <button
+        class="btn btn-clear"
         on:click={skipBackup}
       >
         YOLO&mdash;I'll risk just one device for now
-      </span>
+      </button>
     </div>
   </div>
 </div>

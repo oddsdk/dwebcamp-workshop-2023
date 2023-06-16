@@ -97,11 +97,17 @@ body, input {
   @apply border-base-content;
 }
 
+.modal {
+  @apply bg-base-100;
+  @apply bg-opacity-75;
+}
+
 /* Modal default styles */
 .modal-box {
   @apply p-12;
   @apply border-2;
   @apply border-base-content; 
+  @apply min-w-[33vw];
   @apply max-w-2xl;
 }
 
