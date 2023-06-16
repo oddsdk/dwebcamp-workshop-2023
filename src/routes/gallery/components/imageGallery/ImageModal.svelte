@@ -107,13 +107,13 @@
     <div class="modal-box relative text-center text-base-content">
       <label
         for={`image-modal-${image.cid}`}
-        class="btn btn-xs btn-circle absolute right-2 top-2"
+        class="btn btn-xs btn-circle !bg-base-content !text-base-100 absolute right-2 top-2"
         on:click={handleCloseModal}
       >
         ✕
       </label>
       <div>
-        <h3 class="mb-7 text-lg break-all">{image.name}</h3>
+        <h3 class="mb-6 text-heading-lg break-all">{image.name}</h3>
 
         <div class="relative">
           {#if showPreviousArrow}
@@ -125,7 +125,7 @@
             </button>
           {/if}
           <img
-            class="block object-cover object-center border-2 border-base-content w-full h-full mb-4 rounded-[1rem]"
+            class="block object-cover object-center w-full h-full mb-4 rounded-[1rem]"
             alt={`Image: ${image.name}`}
             src={image.src}
           />
@@ -139,34 +139,16 @@
           {/if}
         </div>
         <div class="flex flex-col items-center justify-center">
-          <p class="mb-2 text-neutral-500">
+          <p class="mb-2 text-odd-gray-300">
             Created {new Date(image.ctime).toDateString()}
           </p>
           <a
             href={`https://ipfs.${ipfsGatewayUrl}/ipfs/${image.cid}/userland`}
             target="_blank"
-            class="underline mb-2 hover:text-neutral-500"
+            class="underline mb-2 hover:text-odd-gray-300"
           >
             View on IPFS{#if image.private}*{/if}
           </a>
-
-          {#if image.private}
-            <p class="mb-2 text-neutral-700 dark:text-neutral-500">
-              * Your private files can only be viewed on devices that have
-              permission. When viewed directly on IPFS, you will see the
-              encrypted state of this file. This is because the raw IPFS gateway
-              view does not have permission to decrypt this file.
-            </p>
-            <p class="mb-2 text-neutral-700 dark:text-neutral-500">
-              Interested in private file sharing as a feature? Follow the <a
-                class="underline"
-                href="https://github.com/oddsdk/odd-app-template/issues/4"
-                target="_blank"
-              >
-                github issue.
-              </a>
-            </p>
-          {/if}
 
           <div
             class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-4"
@@ -182,6 +164,26 @@
               <Trash /> Delete Image
             </button>
           </div>
+
+          {#if image.private}
+          <div class="mt-8 text-body-xs">
+            <p class="mb-2 text-odd-gray-400 dark:text-odd-gray-300">
+              * Your private files can only be viewed on devices that have
+              permission. When viewed directly on IPFS, you will see the
+              encrypted state of this file. This is because the raw IPFS gateway
+              view does not have permission to decrypt this file.
+            </p>
+            <p class="mb-2 text-odd-gray-400 dark:text-odd-gray-300">
+              Interested in private file sharing as a feature? Follow the <a
+                class="underline"
+                href="https://github.com/oddsdk/odd-app-template/issues/4"
+                target="_blank"
+              >
+                github issue.
+              </a>
+            </p>
+          </div>
+          {/if}
         </div>
       </div>
     </div>

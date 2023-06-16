@@ -1,5 +1,5 @@
 <span
-  class="inline-block px-2 py-[2px] !no-underline font-medium text-center text-xs text-neutral-900 bg-gradient-to-r from-orange-300 to-orange-600"
+  class="inline-block px-2 py-[2px] !no-underline font-medium text-center text-body-xs text-odd-gray-100 bg-odd-pink-500"
 >
   ALPHA
 </span>

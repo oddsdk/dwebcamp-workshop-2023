@@ -8,9 +8,9 @@
 <li>
   {#if item.callback}
     <button
-      class="flex items-center justify-start gap-2 font-bold text-sm text-base-content hover:text-base-100 bg-base-100 hover:bg-base-content ease-in-out duration-[250ms] {$page
+      class="flex py-2 px-0 items-center uppercase justify-start gap-2 font-sans text-heading-sm text-base-content hover:text-odd-pink-500 hover:bg-base-100 ease-in-out duration-[250ms] {$page
         .url.pathname === item.href
-        ? '!text-base-100 !bg-base-content'
+        ? '!text-odd-pink-500'
         : ''}"
       on:click={() => {
         handleCloseDrawer()
@@ -21,9 +21,9 @@
     </button>
   {:else}
     <a
-      class="flex items-center justify-start gap-2 font-bold text-sm text-base-content hover:text-base-100 bg-base-100 hover:bg-base-content ease-in-out duration-[250ms] {$page
+      class="flex py-2 px-0 items-center uppercase justify-start gap-2 font-sans text-heading-sm text-base-content hover:text-odd-pink-500 hover:bg-base-100 ease-in-out duration-[250ms] {$page
         .url.pathname === item.href
-        ? '!text-base-100 !bg-base-content'
+        ? '!text-odd-pink-500'
         : ''}"
       href={item.href}
       on:click={handleCloseDrawer}

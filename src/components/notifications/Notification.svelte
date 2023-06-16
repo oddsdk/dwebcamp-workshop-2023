@@ -45,7 +45,7 @@
   aria-live="assertive"
   aria-atomic="true"
 >
-  <div class="alert alert-{notification.type} text-sm mb-3 peer-last:mb-0">
+  <div class="alert alert-{notification.type} text-body-sm mb-3 peer-last:mb-0">
     <div>
       <svelte:component
         this={iconMap[notification.type].component}

@@ -5,9 +5,9 @@
 </script>
 
 <div
-  class="min-h-[calc(100vh-96px)] flex flex-col items-center justify-center max-w-[700px] m-auto gap-6 pb-5 text-sm"
+  class="min-h-[calc(100vh-96px)] flex flex-col items-center justify-center max-w-[700px] m-auto gap-6 pb-5 text-body-sm"
 >
-  <h1 class="text-xl">404 - Page not found</h1>
+  <h1 class="text-heading-lg">404 - Page not found</h1>
 
   <p>The page you have requested does not exist.</p>
 
@@ -19,21 +19,21 @@
 
   <div class="flex items-center justify-between gap-6">
     <a
-      class="flex items-center justify-center gap-2 font-bold text-sm text-base-content"
+      class="flex items-center justify-center gap-2 font-bold text-body-sm text-base-content"
       href="https://guide.fission.codes/"
       target="_blank"
     >
       Docs <ExternalLink />
     </a>
     <a
-      class="flex items-center justify-center gap-2 font-bold text-sm text-base-content"
+      class="flex items-center justify-center gap-2 font-bold text-body-sm text-base-content"
       href="https://github.com/oddsdk/"
       target="_blank"
     >
       Github <Github />
     </a>
     <a
-      class="flex items-center justify-center gap-2 font-bold text-sm text-base-content"
+      class="flex items-center justify-center gap-2 font-bold text-body-sm text-base-content"
       href="https://fission.codes/discord"
       target="_blank"
     >

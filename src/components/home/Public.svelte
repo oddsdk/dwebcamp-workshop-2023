@@ -6,17 +6,17 @@
 </script>
 
 <div
-  class="min-h-[calc(100vh-96px)] flex flex-col items-start justify-center max-w-[700px] m-auto gap-6 pb-5 text-sm"
+  class="min-h-[calc(100vh-96px)] flex flex-col items-start justify-center max-w-[560px] m-auto gap-6 pb-5"
 >
-  <h1 class="text-xl">Welcome to the {appName}</h1>
+  <h1 class="text-heading-lg">Welcome to the {appName}</h1>
 
   <div class="max-w-[590px]">
-    <p class="mb-5">
+    <p class="mb-4">
       The ODD SDK is a true local-first edge computing stack. Effortlessly give
       your users:
     </p>
 
-    <ul class="mb-6 pl-6 list-disc">
+    <ul class="mb-8 pl-10 list-disc">
       <li>
         <span class="font-bold">modern, passwordless accounts</span>
         , without a complex and costly cloud-native back-end
@@ -33,7 +33,7 @@
 
     {#if $sessionStore.error === 'Unsupported Browser'}
       <div class="p-4 rounded-lg bg-base-content text-neutral-50">
-        <h3 class="flex items-center gap-2 text-base">
+        <h3 class="flex items-center gap-2 text-body-m">
           <span class="-translate-y-[2px]"><Alert /></span>
           Unsupported device
         </h3>
@@ -45,11 +45,8 @@
       </div>
     {:else}
       <div class="flex flex-col items-start gap-4">
-        <a class="btn btn-primary !btn-lg !h-10 gap-2" href="/register">
-          <Connect /> Connect this device
-        </a>
-        <a class="btn btn-outline" href="/recover">
-          Recover an existing account
+        <a class="btn btn-primary gap-2" href="/register">
+          Connect this device
         </a>
       </div>
     {/if}

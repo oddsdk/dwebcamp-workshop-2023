@@ -13,13 +13,13 @@
 </script>
 
 <div>
-  <h3 class="text-lg mb-4">Username</h3>
+  <h3 class="text-body-lg mb-4">Username</h3>
   <div class="flex items-center">
     <p>
       <TruncatedUsername />
     </p>
     <button
-      class="pl-2 hover:text-neutral-500 transition-colors"
+      class="pl-2 hover:text-odd-gray-300 transition-colors"
       on:click={handleCopyUsername}
     >
       <ClipboardIcon />

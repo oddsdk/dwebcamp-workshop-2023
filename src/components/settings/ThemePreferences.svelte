@@ -47,7 +47,7 @@
 </script>
 
 <div class="flex flex-col gap-4">
-  <h3 class="text-lg">Theme preference</h3>
+  <h3 class="text-body-lg">Theme preference</h3>
 
   <p>
     Your theme preference is saved per device. Any newly connected device will
@@ -63,7 +63,7 @@
           class="checkbox checked:bg-base-content"
           bind:checked={useDefault}
         />
-        <span class="label-text text-sm ml-2">Use system default</span>
+        <span class="label-text text-body-sm ml-2">Use system default</span>
       </label>
     </div>
     {#each options as option}
@@ -78,7 +78,7 @@
             bind:group={selected}
             disabled={useDefault}
           />
-          <span class="label-text text-sm ml-2">{option.label}</span>
+          <span class="label-text text-body-sm ml-2">{option.label}</span>
         </label>
       </div>
     {/each}

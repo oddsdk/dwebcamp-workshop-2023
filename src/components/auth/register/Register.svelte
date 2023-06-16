@@ -75,23 +75,23 @@
   <FilesystemActivity activity="Initializing" />
 {:else}
   <div
-    class="flex flex-col items-center justify-center gap-8 min-h-[calc(100vh-128px)] md:min-h-[calc(100vh-160px)] max-w-[352px] m-auto"
+    class="flex flex-col items-center justify-center gap-4 min-h-[calc(100vh-128px)] md:min-h-[calc(100vh-160px)] max-w-[352px] m-auto"
   >
-    <h1 class="text-base">Connect this device</h1>
+    <h1 class="text-heading-lg">Connect this device</h1>
 
     <!-- Registration Form -->
     <form
       on:submit={registerUser}
-      class="w-full p-6 rounded bg-base-content text-base-100"
+      class="w-full"
     >
-      <h2 class="mb-2 text-sm font-semibold">Choose a username</h2>
+      <h2 class="mb-2 text-heading-sm">Choose a username</h2>
       <div class="relative">
         <input
           id="registration"
           type="text"
-          class="input input-bordered bg-neutral-50 !text-neutral-900 dark:border-neutral-900 rounded-lg focus:outline-none w-full px-3 block {usernameApproved
-            ? '!border-green-300'
-            : ''} {usernameError ? '!border-red-400' : ''}"
+          class="input input-bordered border-base-content focus:outline-none w-full px-3 block {usernameApproved
+            ? '!border-odd-green-500'
+            : ''} {usernameError ? '!border-odd-red-500' : ''}"
           class:input-error={username.length !== 0 &&
             (!usernameValid || !usernameAvailable)}
           on:input={checkUsername}
@@ -106,22 +106,22 @@
       {#if !registrationSuccess}
         <!-- Error when registration fails -->
         <label for="registration" class="label">
-          <span class="text-xxs !p-0 text-error text-left">
+          <span class="text-body-xs !p-0 text-error text-left">
             There was an issue registering your account. Please try again.
           </span>
         </label>
       {/if}
 
-      <div class="text-left mt-4">
+      <div class="text-left mt-2">
         <input
           type="checkbox"
           id="shared-computer"
-          class="peer checkbox checkbox-primary hover:border-base-100 rounded-lg border-2 border-base-100 transition-colors duration-250 ease-in-out inline-grid align-bottom checked:bg-base-100"
+          class="peer checkbox checkbox-primary border-base-content hover:border-base-content checked:border-base-content rounded-lg border-2 border-base-content transition-colors duration-250 ease-in-out inline-grid align-bottom"
         />
         <!-- Warning when "This is a shared computer" is checked -->
         <label
           for="shared-computer"
-          class="cursor-pointer ml-1 text-sm grid-inline"
+          class="cursor-pointer ml-1 text-body-sm grid-inline"
         >
           This is a public or shared computer
         </label>
@@ -129,7 +129,7 @@
           for="registration"
           class="label mt-4 !p-0 hidden peer-checked:block"
         >
-          <span class="text-red-400 text-left">
+          <span class="text-odd-red-400 text-left text-body-sm">
             In order to ensure the security of your private data, the ODD SDK
             does not recommend creating an account from a public or shared
             computer.
@@ -138,14 +138,8 @@
       </div>
 
       <div class="flex items-center mt-4">
-        <a
-          class="!h-[52px] btn btn-outline !text-neutral-900 !border-neutral-900 !bg-neutral-50"
-          href="/"
-        >
-          Cancel
-        </a>
         <button
-          class="ml-2 !h-[52px] flex-1 btn btn-primary disabled:opacity-50 disabled:border-neutral-900 disabled:text-neutral-900"
+          class="flex-1 btn btn-primary"
           disabled={username.length === 0 ||
             !usernameValid ||
             !usernameAvailable ||
@@ -169,9 +163,9 @@
       </button>
       {#if existingAccount}
         <div
-          class="flex flex-col gap-4 p-6 rounded bg-neutral-200 text-neutral-900"
+          class="flex flex-col gap-4 p-6 rounded bg-odd-gray-200 text-odd-gray-500"
         >
-          <h3 class="text-sm text-center">
+          <h3 class="text-body-sm text-center">
             Which device are you connected on?
           </h3>
           <p>To connect your existing account, you'll need to:</p>
@@ -185,6 +179,8 @@
     </div>
 
     <!-- Recovery Link -->
-    <a href="/recover" class="underline">Recover an account</a>
+    <a href="/recover" class="btn btn-clear">
+      Recover an account
+    </a>
   </div>
 {/if}

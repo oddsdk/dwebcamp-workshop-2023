@@ -26,17 +26,17 @@
     {#if $sessionStore.session}
       <label
         for="sidebar-nav"
-        class="drawer-button cursor-pointer -translate-x-2"
+        class="drawer-button cursor-pointer"
       >
         <Hamburger />
       </label>
     {:else}
       <div
-        class="flex items-center cursor-pointer gap-3"
+        class="flex items-center cursor-pointer gap-3 dark:text-odd-gray-200"
         on:click={() => goto('/')}
       >
         <BrandLogo />
-        <span class="text-lg font-medium text-base-content">Sequences</span>
+        <span class="font-sans text-heading-m">Sequences</span>
       </div>
     {/if}
   </div>
@@ -44,11 +44,11 @@
   <!-- Even if the user is not authed, render this header in the connection flow -->
   {#if !$sessionStore.session || $page.url.pathname.match(/register|backup|delegate/)}
     <div
-      class="hidden lg:flex flex-1 items-center cursor-pointer gap-3"
+      class="hidden lg:flex flex-1 items-center cursor-pointer gap-3 dark:text-odd-gray-200"
       on:click={() => goto('/')}
     >
       <BrandLogo />
-      <span class="text-lg font-medium text-base-content">Sequences</span>
+      <span class="font-sans text-heading-m">Sequences</span>
     </div>
   {/if}
 
@@ -56,9 +56,9 @@
     {#if !$sessionStore.loading && $sessionStore.backupCreated === false}
       <span
         on:click={() => goto('/delegate-account')}
-        class="btn btn-sm h-10 btn-warning rounded-full bg-orange-200 border-2 border-neutral-900 font-medium text-neutral-900 transition-colors ease-in hover:bg-orange-300"
+        class="btn btn-sm btn-warning rounded-full"
       >
-        <span class="mr-2">Backup recommended</span>
+        <span class="mr-1 font-serif text-body-xs">Backup your account</span>
         <Shield />
       </span>
     {/if}
@@ -69,7 +69,7 @@
       </a>
     {/if}
 
-    <span class="ml-2 cursor-pointer">
+    <span class="ml-2 btn btn-circle cursor-pointer">
       {#if $themeStore.selectedTheme === 'light'}
         <span on:click={() => setTheme('dark')}>
           <LightMode />

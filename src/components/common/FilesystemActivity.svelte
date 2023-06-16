@@ -2,16 +2,13 @@
   export let activity: 'Initializing' | 'Loading'
 </script>
 
-<input type="checkbox" id="my-modal-5" checked class="modal-toggle" />
-<div class="modal">
-  <div
-    class="modal-box rounded-lg shadow-sm w-narrowModal relative text-center"
-  >
-    <p class="flex items-center justify-center text-base-content">
+<div class="flex min-h-[80vh] min-w-full justify-center items-center">
+  <div class="min-w-[50vw] flex flex-row items-center">
       <span
-        class="rounded-lg border-t-2 border-l-2 border-base-content w-4 h-4 inline-block animate-spin mr-2"
-      />
-      {activity} file system...
-    </p>
+        class="rounded-full border-4 border-t-4 border-t-base-content border-base-100 w-8 h-8 inline-block animate-spin mr-4"
+      ></span>
+      <h3 class="text-heading-lg">
+        {activity} file system...
+      </h3>
   </div>
 </div>
