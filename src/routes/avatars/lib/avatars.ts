@@ -75,7 +75,7 @@ export async function getContentCID(fileName: string, fs: odd.FileSystem): Promi
   const file = await fs.get(filePath)
 
   if (!isFile(file)) {
-    addNotification(`Could not find public/sequences/${fileName}.`, 'error')
+    addNotification(`Could not find public/avatars/${fileName}.`, 'error')
     return ''
   }
 
