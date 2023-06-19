@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { goto } from '$app/navigation'
+
   import { sessionStore } from '$src/stores'
 </script>
 
@@ -9,7 +11,7 @@
   {:else}
     <p>You have no other connected devices.</p>
   {/if}
-  <a class="btn btn-primary" href="/delegate-account">
+  <button class="btn btn-primary" on:click={() => goto('/delegate-account')}>
     Connect an Additional Device
-  </a>
+  </button>
 </div>

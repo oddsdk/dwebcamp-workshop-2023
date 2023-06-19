@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "@mediapipe/face_mesh": "^0.4.1633559619",
-    "@oddjs/odd": "0.37.0",
+    "@oddjs/odd": "0.37.2",
     "@tensorflow-models/face-detection": "1.0.1",
     "@tensorflow-models/face-landmarks-detection": "1.0.1",
     "@tensorflow/tfjs-backend-webgl": "3.14.0",

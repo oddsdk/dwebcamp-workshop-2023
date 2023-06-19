@@ -122,3 +122,34 @@ export const loadAccount = async (hashedUsername: string, fullUsername: string):
     backupCreated: backupStatus.created
   }))
 }
+
+
+export async function waitForDataRoot(username: string): Promise<void> {
+  const session = getStore(sessionStore)
+  const reference = session.program?.components.reference
+
+  if (!reference) throw new Error('Program must be initialized to check for data root')
+
+  let dataRoot = await reference.dataRoot.lookup(username)
+
+  if (dataRoot) return
+
+  return new Promise((resolve) => {
+    const maxRetries = 20
+    let attempt = 0
+
+    const dataRootInterval = setInterval(async () => {
+      console.warn('Could not fetch filesystem data root. Retrying.')
+
+      dataRoot = await reference.dataRoot.lookup(username)
+
+      if (!dataRoot && attempt < maxRetries) {
+        attempt++
+        return
+      }
+
+      clearInterval(dataRootInterval)
+      resolve()
+    }, 500)
+  })
+}
