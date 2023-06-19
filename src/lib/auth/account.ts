@@ -127,23 +127,22 @@ export const loadAccount = async (hashedUsername: string, fullUsername: string):
 export async function waitForDataRoot(username: string): Promise<void> {
   const session = getStore(sessionStore)
   const reference = session.program?.components.reference
+  const EMPTY_CID = 'Qmc5m94Gu7z62RC8waSKkZUrCCBJPyHbkpmGzEePxy2oXJ'
 
   if (!reference) throw new Error('Program must be initialized to check for data root')
 
   let dataRoot = await reference.dataRoot.lookup(username)
 
-  if (dataRoot) return
+  if (dataRoot.toString() !== EMPTY_CID) return
 
   return new Promise((resolve) => {
-    const maxRetries = 20
+    const maxRetries = 50
     let attempt = 0
 
     const dataRootInterval = setInterval(async () => {
-      console.warn('Could not fetch filesystem data root. Retrying.')
-
       dataRoot = await reference.dataRoot.lookup(username)
 
-      if (!dataRoot && attempt < maxRetries) {
+      if (dataRoot.toString() === EMPTY_CID && attempt < maxRetries) {
         attempt++
         return
       }
