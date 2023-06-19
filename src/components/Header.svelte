@@ -24,10 +24,7 @@
 <header class="navbar flex bg-base-100 pt-4">
   <div class="lg:hidden">
     {#if $sessionStore.session}
-      <label
-        for="sidebar-nav"
-        class="drawer-button cursor-pointer"
-      >
+      <label for="sidebar-nav" class="drawer-button cursor-pointer">
         <Hamburger />
       </label>
     {:else}
@@ -36,7 +33,7 @@
         on:click={() => goto('/')}
       >
         <BrandLogo />
-        <span class="font-sans text-heading-m">Sequences</span>
+        <span class="font-sans text-heading-m">Avatars</span>
       </div>
     {/if}
   </div>
@@ -48,7 +45,7 @@
       on:click={() => goto('/')}
     >
       <BrandLogo />
-      <span class="font-sans text-heading-m">Sequences</span>
+      <span class="font-sans text-heading-m">Avatars</span>
     </div>
   {/if}
 
